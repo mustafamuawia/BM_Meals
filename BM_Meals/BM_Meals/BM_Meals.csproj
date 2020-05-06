@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{377F65F7-ED5F-4836-B28E-5610C5D1C40C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BM_Meals</RootNamespace>
+    <AssemblyName>BM_Meals</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\frmCancelOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCancelOrder.designer.cs">
+      <DependentUpon>frmCancelOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDeleteReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeleteReceipt.designer.cs">
+      <DependentUpon>frmDeleteReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDepartmentsCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDepartmentsCategories.designer.cs">
+      <DependentUpon>frmDepartmentsCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGeneralReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGeneralReport.designer.cs">
+      <DependentUpon>frmGeneralReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItems.designer.cs">
+      <DependentUpon>frmItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOldReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOldReceipt.designer.cs">
+      <DependentUpon>frmOldReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOldReceiptSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOldReceiptSearch.designer.cs">
+      <DependentUpon>frmOldReceiptSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPlacesTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPlacesTables.designer.cs">
+      <DependentUpon>frmPlacesTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReceiptChangeLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReceiptChangeLocation.designer.cs">
+      <DependentUpon>frmReceiptChangeLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRoles.designer.cs">
+      <DependentUpon>frmRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmrptSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmrptSales.designer.cs">
+      <DependentUpon>frmrptSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSales.designer.cs">
+      <DependentUpon>frmSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTakeaway.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTakeaway.designer.cs">
+      <DependentUpon>frmTakeaway.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUserInfo.designer.cs">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmWaiters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmWaiters.designer.cs">
+      <DependentUpon>frmWaiters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderItem.cs" />
+    <Compile Include="Model\Place.cs" />
+    <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Waiter.cs" />
+    <Compile Include="SQLiteMigrationTool\LiteralHelpers.cs" />
+    <Compile Include="SQLiteMigrationTool\MetadataHelpers.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLiteMigrationTool\SQLiteDdlBuilder.cs" />
+    <Compile Include="SQLiteMigrationTool\SQLiteDmlBuilder.cs" />
+    <Compile Include="SQLiteMigrationTool\SQLiteMigrationSqlGenerator.cs" />
+    <Compile Include="SQLiteMigrationTool\SQLiteProviderManifestHelper.cs" />
+    <Compile Include="SQLiteMigrationTool\SQLiteProviderServicesHelper.cs" />
+    <Compile Include="SQLiteMigrationTool\TypeUsageHelpers.cs" />
+    <EmbeddedResource Include="Forms\frmCancelOrder.resx">
+      <DependentUpon>frmCancelOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeleteReceipt.resx">
+      <DependentUpon>frmDeleteReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDepartmentsCategories.resx">
+      <DependentUpon>frmDepartmentsCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGeneralReport.resx">
+      <DependentUpon>frmGeneralReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItems.resx">
+      <DependentUpon>frmItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOldReceipt.resx">
+      <DependentUpon>frmOldReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOldReceiptSearch.resx">
+      <DependentUpon>frmOldReceiptSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPlacesTables.resx">
+      <DependentUpon>frmPlacesTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReceiptChangeLocation.resx">
+      <DependentUpon>frmReceiptChangeLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRoles.resx">
+      <DependentUpon>frmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmrptSales.resx">
+      <DependentUpon>frmrptSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSales.resx">
+      <DependentUpon>frmSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTakeaway.resx">
+      <DependentUpon>frmTakeaway.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUserInfo.resx">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmWaiters.resx">
+      <DependentUpon>frmWaiters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Reports\Order.rdlc" />
+    <None Include="Reports\Receipt.rdlc" />
+    <None Include="Reports\rptGeneral.rdlc" />
+    <None Include="Reports\rptSales.rdlc" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
