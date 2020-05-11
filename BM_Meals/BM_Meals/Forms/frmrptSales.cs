@@ -8,12 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmrptSales : Form
     {
-        
-        JFoodDataContext JFoodDC;
+
+        BM_MealsDBContext BM_MealsDC;
         public frmrptSales()
         {
             InitializeComponent();
@@ -46,8 +46,8 @@ namespace JFood
                 else
                 {
                     
-                    rptSalesResultBindingSource.DataSource = JFoodDC.rptSales(Convert.ToDateTime(strFromTime), Convert.ToDateTime(strToTime).AddMinutes(1),ReportType).ToList();
-                    rptSalesServiceResultBindingSource.DataSource = JFoodDC.rptSalesService(Convert.ToDateTime(strFromTime), Convert.ToDateTime(strToTime).AddMinutes(1), ReportType).ToList();
+                    //rptSalesResultBindingSource.DataSource = BM_MealsDC.rptSales(Convert.ToDateTime(strFromTime), Convert.ToDateTime(strToTime).AddMinutes(1),ReportType).ToList();
+                    //rptSalesServiceResultBindingSource.DataSource = BM_MealsDC.rptSalesService(Convert.ToDateTime(strFromTime), Convert.ToDateTime(strToTime).AddMinutes(1), ReportType).ToList();
                     reportViewer1.RefreshReport();
 
                     reportViewer1.LocalReport.SetParameters(new ReportParameter("FromDate", strFromTime));
@@ -59,8 +59,8 @@ namespace JFood
             }
             else
             {
-                rptSalesResultBindingSource.DataSource = JFoodDC.rptSales(Convert.ToDateTime(strFromTime), Convert.ToDateTime(strToTime), ReportType).ToList();
-                rptSalesServiceResultBindingSource.DataSource = JFoodDC.rptSalesService(Convert.ToDateTime(strFromTime), Convert.ToDateTime(strToTime), ReportType).ToList();
+                //rptSalesResultBindingSource.DataSource = BM_MealsDC.rptSales(Convert.ToDateTime(strFromTime), Convert.ToDateTime(strToTime), ReportType).ToList();
+                //rptSalesServiceResultBindingSource.DataSource = BM_MealsDC.rptSalesService(Convert.ToDateTime(strFromTime), Convert.ToDateTime(strToTime), ReportType).ToList();
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("FromDate", Convert.ToDateTime(strFromTime).ToShortDateString()));
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("ToDate", Convert.ToDateTime(strFromTime).ToLongDateString()));
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("boolDay", true.ToString()));
@@ -71,11 +71,11 @@ namespace JFood
 
         private void frmrptSales_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
+            BM_MealsDC = new BM_MealsDBContext();
             
             
 
-            //rptSalesResultBindingSource.DataSource = JFoodDC.rptSales(dateTimePicker1;
+            //rptSalesResultBindingSource.DataSource = BM_MealsDC.rptSales(dateTimePicker1;
             //reportViewer1.RefreshReport();
         }
 

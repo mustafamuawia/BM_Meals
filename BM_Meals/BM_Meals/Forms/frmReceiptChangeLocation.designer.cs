@@ -1,4 +1,4 @@
-﻿namespace JFood
+﻿namespace BM_Meals
 {
     partial class frmReceiptChangeLocation
     {
@@ -63,7 +63,7 @@
             // 
             // locationBindingSource
             // 
-            this.locationBindingSource.DataSource = typeof(JFood.Location);
+            this.locationBindingSource.DataSource = typeof(BM_Meals.Location);
             // 
             // btnClose
             // 

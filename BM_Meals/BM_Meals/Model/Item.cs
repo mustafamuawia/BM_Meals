@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
-namespace BM_Meals.Model
+namespace BM_Meals
 {
-    class Item
+    public class Item
     {
+        [Key]
         public int ItemsID { get; set; }
 
         public string ItemName { get; set; }

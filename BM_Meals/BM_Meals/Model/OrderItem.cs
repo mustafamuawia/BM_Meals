@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace BM_Meals.Model
+namespace BM_Meals
 {
-    class OrderItem
+    public class OrderItem
     {
+        [Key]
         public int OrderItemID { get; set; }
 
         public System.Nullable<int> OrderID { get; set; }

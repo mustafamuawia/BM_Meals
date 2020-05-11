@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+namespace BM_Meals
 {
  
     public partial class frmPlacesTables : Form
@@ -15,7 +15,7 @@ namespace JFood
         List<Place> _Places;
         List<Location> _Locations;
         int intPlace = 0, intLocation = 0,ReceiptID = 0;
-        JFoodDataContext JFoodDC;
+        BM_MealsDBContext BM_MealsDC;
         public frmPlacesTables()
         {
             InitializeComponent();
@@ -25,19 +25,19 @@ namespace JFood
             flpPlaces.Controls.Clear();
             flpLocations.Controls.Clear();
             
-            _Places = (from _Place in JFoodDC.Places
+            _Places = (from _Place in BM_MealsDC.Places
                        select _Place).ToList<Place>();
 
-            _Locations = (from _Location in JFoodDC.Locations
+            _Locations = (from _Location in BM_MealsDC.Locations
                           where _Location.PlaceID == 1
                           select _Location).ToList<Location>();
-            var OpenTables = from _Receipt in JFoodDC.Receipts
+            var OpenTables = from _Receipt in BM_MealsDC.Receipts
                              where _Receipt.ReceiptStatus == "Current"
                              select _Receipt.LocationID;
 
-            var CurrentPlaces = from _Place in JFoodDC.Places
-                                join _Location in JFoodDC.Locations on _Place.PlaceID equals _Location.PlaceID
-                                join _Receipt in JFoodDC.Receipts on _Location.LocationID equals _Receipt.LocationID
+            var CurrentPlaces = from _Place in BM_MealsDC.Places
+                                join _Location in BM_MealsDC.Locations on _Place.PlaceID equals _Location.PlaceID
+                                join _Receipt in BM_MealsDC.Receipts on _Location.LocationID equals _Receipt.LocationID
                                 where _Receipt.ReceiptStatus == "Current"
                                 select _Location.PlaceID;
 
@@ -107,7 +107,7 @@ namespace JFood
         }
         private void frmPlacesTables_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
+            BM_MealsDC = new BM_MealsDBContext();
             IntializePlaces();
         }
         
@@ -119,11 +119,11 @@ namespace JFood
             intPlace = Convert.ToInt32(((Button)sender).Name);
 
             this.flpLocations.Controls.Clear();
-            _Locations=(from _Location in JFoodDC.Locations
+            _Locations=(from _Location in BM_MealsDC.Locations
                        where _Location.PlaceID == intPlace
                        select _Location).ToList<Location>();
 
-            var OpenTables = from _Receipt in JFoodDC.Receipts
+            var OpenTables = from _Receipt in BM_MealsDC.Receipts
                              where _Receipt.ReceiptStatus == "Current"
                              select _Receipt.LocationID;
             if (_Locations.Count > 32)
@@ -171,13 +171,13 @@ namespace JFood
 
         private void LocationsEvent(object sender, EventArgs e)
         {
-            JFoodDataContext JFoodDC =new JFoodDataContext();
+            BM_MealsDBContext BM_MealsDC =new BM_MealsDBContext();
             int LocationID = int.Parse(((Button)sender).Name);
-             Location varLocation = (from _Location in JFoodDC.Locations
+             Location varLocation = (from _Location in BM_MealsDC.Locations
                            where _Location.LocationID == LocationID
                            select _Location).First<Location>();
-             ReceiptID = (from _Location in JFoodDC.Locations
-                          join _Receipt in JFoodDC.Receipts on _Location.LocationID equals _Receipt.LocationID
+             ReceiptID = (from _Location in BM_MealsDC.Locations
+                          join _Receipt in BM_MealsDC.Receipts on _Location.LocationID equals _Receipt.LocationID
                           where _Location.LocationID == int.Parse(((Control)sender).Name) & _Receipt.ReceiptStatus == "Current"
                           select _Receipt.ReceiptID).FirstOrDefault();
              frmSales fSales = new frmSales(varLocation,ReceiptID);

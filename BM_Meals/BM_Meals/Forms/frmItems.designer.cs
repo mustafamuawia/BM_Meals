@@ -1,4 +1,4 @@
-﻿namespace JFood
+﻿namespace BM_Meals
 {
     partial class frmItems
     {
@@ -94,7 +94,7 @@
             // 
             // categoryBindingSource
             // 
-            this.categoryBindingSource.DataSource = typeof(JFood.Category);
+            this.categoryBindingSource.DataSource = typeof(BM_Meals.Category);
             // 
             // DepartmentID
             // 
@@ -109,7 +109,7 @@
             // 
             // departmentBindingSource
             // 
-            this.departmentBindingSource.DataSource = typeof(JFood.Department);
+            this.departmentBindingSource.DataSource = typeof(BM_Meals.Department);
             // 
             // dataGridViewTextBoxColumn21
             // 
@@ -134,7 +134,7 @@
             // 
             // itemBindingSource
             // 
-            this.itemBindingSource.DataSource = typeof(JFood.Item);
+            this.itemBindingSource.DataSource = typeof(BM_Meals.Item);
             // 
             // btnSave
             // 

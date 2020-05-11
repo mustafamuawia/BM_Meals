@@ -1,4 +1,4 @@
-﻿namespace JFood
+﻿namespace BM_Meals
 {
     partial class frmDeleteReceipt
     {
@@ -51,10 +51,6 @@
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // prntReceiptReceiptIDResultBindingSource
-            // 
-            this.prntReceiptReceiptIDResultBindingSource.DataSource = typeof(JFood.prntReceiptReceiptIDResult);
             // 
             // splitContainer1
             // 
@@ -199,7 +195,7 @@
             reportDataSource3.Name = "dsPrintReceipt";
             reportDataSource3.Value = this.prntReceiptReceiptIDResultBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "JFood.Receipt.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BM_Meals.Receipt.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(668, 541);

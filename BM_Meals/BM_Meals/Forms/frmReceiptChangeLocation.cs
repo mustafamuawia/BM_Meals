@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmReceiptChangeLocation : Form
     {
-        JFoodDataContext JFoodDC;
+        BM_MealsDBContext BM_MealsDC;
         public frmReceiptChangeLocation()
         {
             InitializeComponent();
@@ -19,8 +19,8 @@ namespace JFood
 
         private void frmReceiptChangeLocation_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
-            comboBox2.DataSource = (from _Location in JFoodDC.Locations
+            BM_MealsDC = new BM_MealsDBContext();
+            comboBox2.DataSource = (from _Location in BM_MealsDC.Locations
                                     where _Location.PlaceID == 1
                                     select _Location).ToList();
             if (comboBox2.Items.Count > 0)

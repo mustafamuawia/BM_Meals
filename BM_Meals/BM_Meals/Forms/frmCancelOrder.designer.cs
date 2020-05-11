@@ -1,4 +1,4 @@
-﻿namespace JFood
+﻿namespace BM_Meals
 {
     partial class frmCancelOrder
     {
@@ -51,10 +51,6 @@
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // GetOrderByIDResultBindingSource
-            // 
-            this.GetOrderByIDResultBindingSource.DataSource = typeof(JFood.GetOrderByIDResult);
             // 
             // splitContainer1
             // 
@@ -199,7 +195,7 @@
             reportDataSource1.Name = "dsOrder";
             reportDataSource1.Value = this.GetOrderByIDResultBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "JFood.Order.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BM_Meals.Order.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(668, 541);

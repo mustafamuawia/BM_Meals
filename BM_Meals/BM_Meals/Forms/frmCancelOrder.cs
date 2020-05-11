@@ -8,11 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmCancelOrder : Form
     {
-        JFoodDataContext JFoodDC;
+        BM_Meals.BM_MealsDBContext BM_MealsDC;
         public frmCancelOrder()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace JFood
         
         private void frmDeleteReceipt_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
+            BM_MealsDC = new BM_Meals.BM_MealsDBContext();
             //this.reportViewer1.RefreshReport();
         }
 
@@ -33,12 +33,12 @@ namespace JFood
                 if (txtOrderID.Text != "")
                 {
                     txtOrderID.Enabled = false;
-                    var _Order = JFoodDC.GetOrderByID(int.Parse(txtOrderID.Text)).ToList();
-                    if (_Order.Count > 0)
+                    //var _Order = BM_MealsDC.GetOrderByID(int.Parse(txtOrderID.Text)).ToList();
+                    /*if (_Order.Count > 0)
                     {
                         GetOrderByIDResultBindingSource.DataSource = _Order;
                         btnDeleteReciept.Enabled = true;
-                    }
+                    }*/
                 }
             }
             else
@@ -47,12 +47,12 @@ namespace JFood
                 {
                     txtOrderSerial.Enabled = false;
                     dtpReceiptDate.Enabled = false;
-                    var _Order = JFoodDC.GetOrderBySerial(int.Parse(txtOrderSerial.Text), dtpReceiptDate.Value.Date).ToList();
+                    /*var _Order = BM_MealsDC.GetOrderBySerial(int.Parse(txtOrderSerial.Text), dtpReceiptDate.Value.Date).ToList();
                     if (_Order.Count > 0)
                     {
                         GetOrderByIDResultBindingSource.DataSource = _Order;
                         btnDeleteReciept.Enabled = true;
-                    }
+                    }*/
                 }
             }
             reportViewer1.LocalReport.SetParameters(new ReportParameter("Header", "فول وتميس افغاني"));
@@ -69,50 +69,51 @@ namespace JFood
             {
                 if (radioButton1.Checked)
                 {
-                    var OrderPlaceID =JFoodDC.GetOrderByID(int.Parse(txtOrderID.Text)).FirstOrDefault().PlaceID;
-                    decimal? OrderTotal = JFoodDC.GetOrderByID(int.Parse(txtOrderID.Text)).FirstOrDefault().TotalPrice;
-                    JFoodDC.CancelOrderByID(int.Parse(txtOrderID.Text));
+                    /*var OrderPlaceID =BM_MealsDC.GetOrderByID(int.Parse(txtOrderID.Text)).FirstOrDefault().PlaceID;
+                    decimal? OrderTotal = BM_MealsDC.GetOrderByID(int.Parse(txtOrderID.Text)).FirstOrDefault().TotalPrice;
+                    BM_MealsDC.CancelOrderByID(int.Parse(txtOrderID.Text));
 
-                     ReceiptID= JFoodDC.GetOrderByID(int.Parse(txtOrderID.Text)).ToList<GetOrderByIDResult>().FirstOrDefault().ReceiptID;
-                     var varReceipt = (from __Receipt in JFoodDC.Receipts
+                     ReceiptID= BM_MealsDC.GetOrderByID(int.Parse(txtOrderID.Text)).ToList<GetOrderByIDResult>().FirstOrDefault().ReceiptID;
+                     var varReceipt = (from __Receipt in BM_MealsDC.Receipts
                                        where __Receipt.ReceiptID == ReceiptID
                                        select __Receipt).FirstOrDefault();
-                     decimal ServiceFees = (decimal)(from _Place in JFoodDC.Places
+                     decimal ServiceFees = (decimal)(from _Place in BM_MealsDC.Places
                                                      where _Place.PlaceID == OrderPlaceID
                                                      select _Place.ServiceFees).First();
             
                      varReceipt.ReceiptTotal -= OrderTotal;
                      varReceipt.ServiceFees -= Convert.ToInt32( OrderTotal * ServiceFees / 100);
-                     JFoodDC.SubmitChanges();
-                    ReceiptOrders = (from _Order in JFoodDC.Orders
+                     BM_MealsDC.SubmitChanges();
+                    ReceiptOrders = (from _Order in BM_MealsDC.Orders
                                          where _Order.ReceiptID == ReceiptID && _Order.OrderStatus !="Canceled"
                                          select _Order).ToList().Count;
+                                         */
                 }
                 else
                 {
-                    var OrderPlaceID = JFoodDC.GetOrderByID(int.Parse(txtOrderSerial.Text)).FirstOrDefault().PlaceID;
+                   /* var OrderPlaceID = BM_MealsDC.GetOrderByID(int.Parse(txtOrderSerial.Text)).FirstOrDefault().PlaceID;
                     
-                    decimal? OrderTotal = JFoodDC.GetOrderBySerial(int.Parse(txtOrderSerial.Text), dtpReceiptDate.Value.Date).FirstOrDefault().TotalPrice;
-                    JFoodDC.CancelOrderBySerial(int.Parse(txtOrderSerial.Text), dtpReceiptDate.Value.Date);
-                    ReceiptID= JFoodDC.GetOrderBySerial(int.Parse(txtOrderSerial.Text), dtpReceiptDate.Value.Date).ToList<GetOrderBySerialResult>().FirstOrDefault().ReceiptID;
-                    decimal ServiceFees = (decimal)(from _Place in JFoodDC.Places
+                    decimal? OrderTotal = BM_MealsDC.GetOrderBySerial(int.Parse(txtOrderSerial.Text), dtpReceiptDate.Value.Date).FirstOrDefault().TotalPrice;
+                    BM_MealsDC.CancelOrderBySerial(int.Parse(txtOrderSerial.Text), dtpReceiptDate.Value.Date);
+                    ReceiptID= BM_MealsDC.GetOrderBySerial(int.Parse(txtOrderSerial.Text), dtpReceiptDate.Value.Date).ToList<GetOrderBySerialResult>().FirstOrDefault().ReceiptID;
+                    decimal ServiceFees = (decimal)(from _Place in BM_MealsDC.Places
                                                     where _Place.PlaceID == OrderPlaceID
                                                     select _Place.ServiceFees).First();
-                    var varReceipt = (from __Receipt in JFoodDC.Receipts
+                    var varReceipt = (from __Receipt in BM_MealsDC.Receipts
                                       where __Receipt.ReceiptID == ReceiptID
                                       select __Receipt).FirstOrDefault();
 
                     varReceipt.ReceiptTotal -= OrderTotal;
                     varReceipt.ServiceFees -= Convert.ToInt32(OrderTotal * ServiceFees / 100);
-                    JFoodDC.SubmitChanges();
+                    BM_MealsDC.SubmitChanges();
 
-                    ReceiptOrders = (from _Order in JFoodDC.Orders
+                    ReceiptOrders = (from _Order in BM_MealsDC.Orders
                                      where _Order.ReceiptID == ReceiptID && _Order.OrderStatus != "Canceled"
-                                     select _Order).ToList().Count;
+                                     select _Order).ToList().Count;*/
                 }
                 if (ReceiptOrders == 0)
                 {
-                    JFoodDC.CancelReceiptByID(ReceiptID);
+                   // BM_MealsDC.CancelReceiptByID(ReceiptID);
                 }
                 ((frmPlacesTables)Application.OpenForms["frmPlacesTables"]).IntializePlaces();
                 Close();

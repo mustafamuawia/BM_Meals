@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmMain : Form
     {

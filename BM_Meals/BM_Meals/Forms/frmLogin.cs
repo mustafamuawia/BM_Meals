@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+
+namespace BM_Meals
 {
     public partial class frmLogin : Form
     {
         public static int UserID;
-        JFoodDataContext JFoodDC; 
+        BM_MealsDBContext BM_MealsDC; 
         public frmLogin()
         {
             InitializeComponent();
@@ -20,9 +21,9 @@ namespace JFood
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            JFoodDC= new JFoodDataContext();
+            BM_MealsDC= new BM_MealsDBContext();
 
-            var UsersTable = (from Users in JFoodDC.Users
+            var UsersTable = (from Users in BM_MealsDC.Users
                               where Users.UserID != frmLogin.UserID
                               select Users).ToList();
 
@@ -60,7 +61,7 @@ namespace JFood
         private void btnEnter_Click(object sender, EventArgs e)
         {
             
-            User varUser = JFoodDC.Users.SingleOrDefault(User =>User.Username==cbUsers.Text && User.UserPassword==textBox1.Text && User.UserStatus == "مفعل");
+            User varUser = BM_MealsDC.Users.SingleOrDefault(User =>User.Username==cbUsers.Text && User.UserPassword==textBox1.Text && User.UserStatus == "مفعل");
             if (varUser != null)
             {
                 errorProvider1.SetError(textBox1, "");

@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmOldReceiptSearch : Form
     {
-        
-        
-        JFoodDataContext JFoodDC;
+
+
+        BM_MealsDBContext BM_MealsDC;
         public frmOldReceiptSearch()
         {
             InitializeComponent();
@@ -31,27 +31,27 @@ namespace JFood
             {
                 Status = "Credit";
             }
-            if (!chPeriod.Checked)
+            /*if (!chPeriod.Checked)
             {
-            searchOldReceiptsResultBindingSource.DataSource = JFoodDC.SearchOldReceipts(int.Parse(comboBox2.SelectedValue.ToString()),
+            searchOldReceiptsResultBindingSource.DataSource = BM_MealsDC.SearchOldReceipts(int.Parse(comboBox2.SelectedValue.ToString()),
                 dateTimePicker1.Value.Date, null, Status).ToList();}
             else
-                searchOldReceiptsResultBindingSource.DataSource = JFoodDC.SearchOldReceipts(int.Parse(comboBox2.SelectedValue.ToString()),
-                dateTimePicker1.Value.Date, dtpDateTo.Value.AddDays(1).Date, Status).ToList();
+                searchOldReceiptsResultBindingSource.DataSource = BM_MealsDC.SearchOldReceipts(int.Parse(comboBox2.SelectedValue.ToString()),
+                dateTimePicker1.Value.Date, dtpDateTo.Value.AddDays(1).Date, Status).ToList();*/
             //dataGridView1.DataSource = searchOldReceiptsResultBindingSource;
         }
 
         private void frmOldReceiptSearch_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
-            comboBox1.DataSource = (from _Place in JFoodDC.Places
+            BM_MealsDC = new BM_MealsDBContext();
+            comboBox1.DataSource = (from _Place in BM_MealsDC.Places
                                                            select _Place).ToList();
             comboBox1.SelectedIndex = 0;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox2.DataSource = (from _Location in JFoodDC.Locations
+            comboBox2.DataSource = (from _Location in BM_MealsDC.Locations
                                     where _Location.PlaceID == int.Parse(comboBox1.SelectedValue.ToString())
                                     select _Location).ToList();
             if (comboBox2.Items.Count > 0)

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace BM_Meals.Model
+namespace BM_Meals
 {
-    class Receipt
+    public class Receipt
     {
+        [Key]
         public int ReceiptID { get; set; }
 
         public System.Nullable<int> ReceiptSerial { get; set; }

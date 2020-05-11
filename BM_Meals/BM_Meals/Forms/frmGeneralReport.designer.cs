@@ -1,4 +1,4 @@
-﻿namespace JFood
+﻿namespace BM_Meals
 {
     partial class frmGeneralReport
     {
@@ -48,10 +48,6 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rptSalesServiceResultBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rptGeneralResultBindingSource
-            // 
-            this.rptGeneralResultBindingSource.DataSource = typeof(JFood.rptGeneralResult);
             // 
             // splitContainer1
             // 
@@ -164,16 +160,12 @@
             reportDataSource2.Value = this.rptSalesServiceResultBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "JFood.rptGeneral.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BM_Meals.rptGeneral.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.reportViewer1.Size = new System.Drawing.Size(668, 541);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // rptSalesServiceResultBindingSource
-            // 
-            this.rptSalesServiceResultBindingSource.DataSource = typeof(JFood.rptSalesServiceResult);
             // 
             // frmGeneralReport
             // 
@@ -212,4 +204,4 @@
         private System.Windows.Forms.BindingSource rptGeneralResultBindingSource;
         private System.Windows.Forms.BindingSource rptSalesServiceResultBindingSource;
     }
-}                                                                                                                                                       source"   EE:\Just\JFood\JFood\Properties\DataSources\frmPlacesTables.datasource#   >E:\Just\JFood\JFood\Properties\DataSources\frmSales.datasource$   HE:\Just\JFood\JFood\Properties\DataSources\GetOrderByIDResult.datasource%   GE:\Just\JFood\JFood\Properties\DataSources\InsertOrderResult.datasource&   IE:\Just\JFood\JFood\Properties\DataSources\InsertReceiptResult.datasource'   :E:\Just\JFood\JFood\Properties\DataSources\Item.datasource(   PE:\Just\JFood\JFood\Properties\DataSources\JFood.Properties.Resources.datasource)   OE:\Just\JFood\JFood\Properties\DataSources\JFood.Properties.Settings.datasource*   FE:\Just\JFood\JFood\Properties\DataSources\JFoodDataContext.datasource+   >E:\Just\JFood\JFood\Properties\DataSources\Location.datasource,   ;E:\Just\JFood\JFood\Properties\DataSources\Order.datasource-   ?E:\Just\JFood\JFood\Properties\DataSources\OrderItem.datasource.   ;E:\Just\JFood\JFood\Properties\DataSources\Place.datasource/   PE:\Just\JFood\JFood\Properties\DataSources\prntReceiptRec
+}

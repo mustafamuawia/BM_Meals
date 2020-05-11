@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace BM_Meals.Model
+namespace BM_Meals
 {
-    class Place
+    public class Place
     {
+        [Key]
         public int PlaceID { get; set; }
 
         public string PlaceName { get; set; }

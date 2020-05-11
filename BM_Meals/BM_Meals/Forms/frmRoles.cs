@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+
+namespace BM_Meals
 {
     public partial class frmRoles : Form
     {
         //dsPosTableAdapters.UsersTableAdapter uta;
         //dsPos.UsersDataTable udt;
         string UserName;
-        JFoodDataContext JFoodDC;
+        BM_MealsDBContext BM_MealsDC;
         User varUsers;
         public frmRoles()
         {
@@ -129,7 +130,7 @@ namespace JFood
                 try
                 {
 
-                    int UsersCount = (from _User in JFoodDC.Users
+                    int UsersCount = (from _User in BM_MealsDC.Users
                                       where _User.Username == txtUsername.Text
                                       select _User).Count();
                     if (UsersCount != 0)
@@ -142,8 +143,8 @@ namespace JFood
                         _user.UserPassword = txtPassword.Text;
                         _user.UserRole = cbUserUSERROLE.Text;
                         _user.UserStatus = "مفعل";
-                        JFoodDC.Users.InsertOnSubmit(_user);
-                        JFoodDC.SubmitChanges();
+                        //BM_MealsDC.Users.InsertOnSubmit(_user);
+                        //BM_MealsDC.SubmitChanges();
 
                         this.btnAddNewUser.Enabled = true;
                         this.btnCancelAdd.Enabled = false;
@@ -242,11 +243,11 @@ namespace JFood
 
         private void btnSaveEdit_Click(object sender, EventArgs e)
         {
-            int UsersCount = (from _User in JFoodDC.Users
+            int UsersCount = (from _User in BM_MealsDC.Users
                               where _User.Username == txtNewUsername.Text
                               select _User).Count();
             
-            User varUser = (from _User in JFoodDC.Users
+            User varUser = (from _User in BM_MealsDC.Users
                         where _User.UserID == int.Parse(cbUsers.SelectedValue.ToString())
                         select _User).FirstOrDefault();
 
@@ -277,7 +278,7 @@ namespace JFood
                         varUser.UserPassword = txtNewPasswordConfirmation.Text;
                     }   
 
-                    JFoodDC.SubmitChanges();
+                    //BM_MealsDC.SubmitChanges();
                     MessageBox.Show("تم الحفظ بنجاح");
                     frmUsersManagement_Load(null, null);
 
@@ -386,8 +387,8 @@ namespace JFood
 
         private void frmRoles_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
-            var UsersTable = (from Users in JFoodDC.Users
+            BM_MealsDC = new BM_MealsDBContext();
+            var UsersTable = (from Users in BM_MealsDC.Users
                              where Users.UserID != frmLogin.UserID
                              select Users).ToList();
 

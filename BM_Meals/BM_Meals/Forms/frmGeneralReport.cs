@@ -8,11 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmGeneralReport : Form
     {
-        JFoodDataContext JFoodDC;
+        BM_MealsDBContext BM_MealsDC;
         public frmGeneralReport()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace JFood
 
         private void frmDeleteReceipt_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
+            BM_MealsDC = new BM_MealsDBContext();
             //this.reportViewer1.RefreshReport();
         }
 
@@ -30,8 +30,8 @@ namespace JFood
 
             if (chPeriod.Checked)
             {
-                rptGeneralResultBindingSource.DataSource = JFoodDC.rptGeneral(dateTimePicker1.Value.Date, dtpDateTo.Value.AddDays(1).Date);
-                rptSalesServiceResultBindingSource.DataSource = JFoodDC.rptGeneral(dateTimePicker1.Value.Date, dtpDateTo.Value.AddDays(1).Date);
+                //rptGeneralResultBindingSource.DataSource = BM_MealsDC.rptGeneral(dateTimePicker1.Value.Date, dtpDateTo.Value.AddDays(1).Date);
+                //rptSalesServiceResultBindingSource.DataSource = BM_MealsDC.rptGeneral(dateTimePicker1.Value.Date, dtpDateTo.Value.AddDays(1).Date);
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("FromDate", dateTimePicker1.Value.Date.ToShortDateString()));
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("ToDate", dtpDateTo.Value.Date.ToShortDateString()));
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("boolDay", false.ToString()));
@@ -39,7 +39,7 @@ namespace JFood
             }
             else
             {
-                rptGeneralResultBindingSource.DataSource = JFoodDC.rptGeneral(dateTimePicker1.Value.Date, dateTimePicker1.Value.Date.AddDays(1));
+                //rptGeneralResultBindingSource.DataSource = BM_MealsDC.rptGeneral(dateTimePicker1.Value.Date, dateTimePicker1.Value.Date.AddDays(1));
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("FromDate", dateTimePicker1.Value.Date.ToShortDateString()));
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("ToDate", dtpDateTo.Value.Date.ToShortDateString()));
                 reportViewer1.LocalReport.SetParameters(new ReportParameter("boolDay", true.ToString()));

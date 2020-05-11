@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmDepartmentsCategories : Form
     {
         IQueryable Waiters;
         IQueryable Categories;
         IQueryable Departments;
-        JFoodDataContext JFoodDC;
+        BM_Meals.BM_MealsDBContext BM_MealsDC;
         public frmDepartmentsCategories()
         {
             InitializeComponent();
@@ -22,15 +22,15 @@ namespace JFood
 
         private void frmDepartmentsCategories_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
-            Waiters = from _Waiter in JFoodDC.Waiters select _Waiter;
-            Categories = from _Category in JFoodDC.Categories select _Category;
-            Departments = from _Dpartment in JFoodDC.Departments select _Dpartment;
+            BM_MealsDC = new BM_Meals.BM_MealsDBContext();
+            Waiters = from _Waiter in BM_MealsDC.Waiters select _Waiter;
+            Categories = from _Category in BM_MealsDC.Categories select _Category;
+            Departments = from _Dpartment in BM_MealsDC.Departments select _Dpartment;
             
             
-            waiterBindingSource.DataSource = JFoodDC.Waiters;
-            categoryBindingSource.DataSource = JFoodDC.Categories;
-            departmentBindingSource.DataSource = JFoodDC.Departments;
+            waiterBindingSource.DataSource = BM_MealsDC.Waiters;
+            categoryBindingSource.DataSource = BM_MealsDC.Categories;
+            departmentBindingSource.DataSource = BM_MealsDC.Departments;
             dgvWaiters.DataSource = waiterBindingSource;
             dgvCategories.DataSource = categoryBindingSource;
             dgvDepartments.DataSource = departmentBindingSource;
@@ -41,10 +41,10 @@ namespace JFood
         {
 
             dgvCategories.EndEdit();
-            JFoodDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Categories);
-            JFoodDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
+           // BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Categories);
+            //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
 
-            JFoodDC.SubmitChanges();
+            //BM_MealsDC.SubmitChanges();
 
             frmDepartmentsCategories_Load(null, null);
             MessageBox.Show("تم الحفظ");
@@ -55,9 +55,9 @@ namespace JFood
             
             dgvCategories.EndEdit();
 
-            JFoodDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Waiters);
-            JFoodDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
-            JFoodDC.SubmitChanges();
+            //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Waiters);
+            //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
+            //BM_MealsDC.SubmitChanges();
             frmDepartmentsCategories_Load(null, null);
             MessageBox.Show("تم الحفظ");
         }
@@ -66,10 +66,10 @@ namespace JFood
         {
             
             dgvWaiters.EndEdit();
-            JFoodDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Categories);
-            JFoodDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
+            //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Categories);
+            //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
             
-            JFoodDC.SubmitChanges();
+            //BM_MealsDC.SubmitChanges();
             frmDepartmentsCategories_Load(null, null);
             MessageBox.Show("تم الحفظ");
         }

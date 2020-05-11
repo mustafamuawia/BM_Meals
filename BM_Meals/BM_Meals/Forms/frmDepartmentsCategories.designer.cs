@@ -1,4 +1,4 @@
-﻿namespace JFood
+﻿namespace BM_Meals
 {
     partial class frmDepartmentsCategories
     {
@@ -79,7 +79,7 @@
             // 
             // categoryBindingSource
             // 
-            this.categoryBindingSource.DataSource = typeof(JFood.Category);
+            this.categoryBindingSource.DataSource = typeof(BM_Meals.Category);
             // 
             // label1
             // 
@@ -114,7 +114,7 @@
             // 
             // departmentBindingSource
             // 
-            this.departmentBindingSource.DataSource = typeof(JFood.Department);
+            this.departmentBindingSource.DataSource = typeof(BM_Meals.Department);
             // 
             // label2
             // 
@@ -149,7 +149,7 @@
             // 
             // waiterBindingSource
             // 
-            this.waiterBindingSource.DataSource = typeof(JFood.Waiter);
+            this.waiterBindingSource.DataSource = typeof(BM_Meals.Waiter);
             // 
             // label3
             // 

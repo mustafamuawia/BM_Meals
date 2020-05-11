@@ -12,7 +12,7 @@ using Microsoft.Reporting.WinForms;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 
-namespace JFood
+namespace BM_Meals
 {
     
     public partial class frmSales : Form
@@ -26,7 +26,7 @@ namespace JFood
         private int m_currentPageIndex;
         private IList<Stream> m_streams;
         public int WaiterID = 0;
-        JFoodDataContext JFoodDC;
+        BM_MealsDBContext BM_MealsDC;
         List<KeyValuePair<int, int>> lstDepartmentsItems;
 
         List<KeyValuePair<Order, List<OrderItem>>> lstOrder_OrderItems;
@@ -93,16 +93,16 @@ namespace JFood
 
         private void frmSales_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
+            BM_MealsDC = new BM_MealsDBContext();
             lstDepartmentsItems = new List<KeyValuePair<int, int>>();
-            _Categories = (from _Category in JFoodDC.Categories
+            _Categories = (from _Category in BM_MealsDC.Categories
                            // where _Place.PlaceID == 1
                            select _Category).ToList<Category>();
             
-            _Items = (from _Location in JFoodDC.Items
+            _Items = (from _Location in BM_MealsDC.Items
                       where _Location.CategoryID == 1
                       select _Location).ToList<Item>();
-            lblPlaceName.Text = (from _Place in JFoodDC.Places
+            lblPlaceName.Text = (from _Place in BM_MealsDC.Places
                                  where _Place.PlaceID == varLocation.PlaceID
                                  select _Place.PlaceName).First();
 
@@ -176,7 +176,7 @@ namespace JFood
                 //btnCredit.Visible = true;
                 //btnVoucher.Visible = true;
                 lblReceiptID.Text = ReceiptID.ToString();
-                var varReceipt = from _Receipt in JFoodDC.Receipts
+                var varReceipt = from _Receipt in BM_MealsDC.Receipts
                                  where _Receipt.ReceiptID == ReceiptID
                                  select _Receipt;
                 lblReceiptSerial.Text = varReceipt.First().ReceiptSerial.ToString();
@@ -184,13 +184,13 @@ namespace JFood
 
                 lstOrder_OrderItems = new List<KeyValuePair<Order, List<OrderItem>>>();
 
-                List<Order> Orders = (from _Order in JFoodDC.Orders
+                List<Order> Orders = (from _Order in BM_MealsDC.Orders
                                       where _Order.ReceiptID == ReceiptID && _Order.OrderStatus =="Available"
                                       select _Order).ToList<Order>();
 
                 for (int i = 0; i < Orders.Count; i++)
                 {
-                    List<OrderItem> lstOrderItems = (from _OrderItems in JFoodDC.OrderItems
+                    List<OrderItem> lstOrderItems = (from _OrderItems in BM_MealsDC.OrderItems
                                                      where _OrderItems.OrderID == Orders[i].OrderID
                                                      select _OrderItems).ToList<OrderItem>();
 
@@ -221,7 +221,7 @@ namespace JFood
 
             intCategory = Convert.ToInt32(((Button)sender).Name);
 
-            _Items = (from _Location in JFoodDC.Items
+            _Items = (from _Location in BM_MealsDC.Items
                       where _Location.CategoryID == intCategory
                       select _Location).ToList<Item>();
 
@@ -268,7 +268,7 @@ namespace JFood
         private void MenuItemsEvent(object sender, EventArgs e)
         {
             int ItemID = int.Parse(((Button)sender).Name);
-            Item varItem = (from _Item in new JFoodDataContext().Items
+            Item varItem = (from _Item in new BM_MealsDBContext().Items
                             where _Item.ItemsID == ItemID
                             select _Item).First<Item>();
 
@@ -302,7 +302,7 @@ namespace JFood
 
             BindingSource bsOrder = new BindingSource();
 
-            bsOrder.DataSource = JFoodDC.GetOrderByID(OrderID).ToList();
+            //bsOrder.DataSource = BM_MealsDC.GetOrderByID(OrderID).ToList();
             report.SetParameters(new ReportParameter("Header", "فول وتميس افغاني"));
             report.DataSources.Add(new ReportDataSource("dsOrder", bsOrder));
             
@@ -363,9 +363,9 @@ namespace JFood
                 if (new frmWaiters().ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
 
-                    JFoodDataContext JFoodDC = new JFoodDataContext();
+                    BM_MealsDBContext BM_MealsDC = new BM_MealsDBContext();
 
-                    decimal ServiceFees = (decimal)(from _Place in JFoodDC.Places
+                    decimal ServiceFees = (decimal)(from _Place in BM_MealsDC.Places
                                                     where _Place.PlaceID == varLocation.PlaceID
                                                     select _Place.ServiceFees).First();
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -379,18 +379,18 @@ namespace JFood
                     if (ReceiptID == 0)
                     {
 
-                        ReceiptID = JFoodDC.InsertReceipt(DateTime.Now, decimal.Parse(lblTotal.Text), frmLogin.UserID, WaiterID, varLocation.LocationID, 0, Convert.ToInt32(decimal.Parse(lblTotal.Text)*ServiceFees/100)).First().ReceiptID;
+                        //ReceiptID = BM_MealsDC.InsertReceipt(DateTime.Now, decimal.Parse(lblTotal.Text), frmLogin.UserID, WaiterID, varLocation.LocationID, 0, Convert.ToInt32(decimal.Parse(lblTotal.Text)*ServiceFees/100)).First().ReceiptID;
                         // decimal ReceiptTotal = decimal.Parse(dataGridView1.Rows.Cast<DataGridViewRow>().Sum(Row => decimal.Parse(Row.Cells["Total"].Value.ToString())).ToString());
                     }
                     else
                     {
-                        var varReceipt = (from _Receipt in JFoodDC.Receipts
+                        var varReceipt = (from _Receipt in BM_MealsDC.Receipts
                                           where _Receipt.ReceiptID == ReceiptID
                                           select _Receipt).FirstOrDefault();
 
                         varReceipt.ReceiptTotal = varReceipt.ReceiptTotal + decimal.Parse(lblTotal.Text);
                         varReceipt.ServiceFees = varReceipt.ServiceFees + Convert.ToInt32(decimal.Parse(lblTotal.Text) * ServiceFees / 100);
-                        JFoodDC.SubmitChanges();
+                        //BM_MealsDC.SubmitChanges();
 
                     }
 
@@ -400,10 +400,10 @@ namespace JFood
 
                     foreach (var DepartmentID in Departments)
                     {
-                        lstOrder = new List<OrderItem>();
+                        /*lstOrder = new List<OrderItem>();
                         decimal OrderTotal = Convert.ToDecimal(dataGridView1.Rows.Cast<DataGridViewRow>().Where(_Row => _Row.Cells["DepartmentID"].Value.ToString()==DepartmentID.ToString())
                             .Sum(Row => decimal.Parse(Row.Cells["Total"].Value.ToString())).ToString());
-                        OrderID = JFoodDC.InsertOrder(ReceiptID, "Available", frmLogin.UserID, WaiterID, OrderTotal, DateTime.Now,
+                        OrderID = BM_MealsDC.InsertOrder(ReceiptID, "Available", frmLogin.UserID, WaiterID, OrderTotal, DateTime.Now,
                    varLocation.LocationID, varLocation.LocationName).First().orderid;
                         for (int i = 0; i < dataGridView1.Rows.Count; i++)
                         {
@@ -417,16 +417,16 @@ namespace JFood
                                 _OrderItem.ItemQTY = int.Parse(dataGridView1.Rows[i].Cells["QTY"].Value.ToString());
                                 _OrderItem.OrderID = OrderID;
                                 _OrderItem.TotalPrice = _OrderItem.ItemPrice * _OrderItem.ItemQTY;
-                                JFoodDC.OrderItems.InsertOnSubmit(_OrderItem);
-                                JFoodDC.SubmitChanges();
+                                BM_MealsDC.OrderItems.InsertOnSubmit(_OrderItem);
+                                BM_MealsDC.SubmitChanges();
                                 lstOrder.Add(_OrderItem);
                             }
                         }
-                        string Department = (from _Dept in JFoodDC.Departments
+                        string Department = (from _Dept in BM_MealsDC.Departments
                                              where _Dept.DepartmentID == DepartmentID
                                              select _Dept.DepartmentName).First().ToString();
                         PrintDepartment(OrderID);
-                        
+                        */
                     }
                     ((frmPlacesTables)Application.OpenForms["frmPlacesTables"]).IntializePlaces();
                     Close();
@@ -443,12 +443,12 @@ namespace JFood
         {
             if (MessageBox.Show(this, "هل تود الغاء الطلب", "تنبيه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                JFoodDataContext JFoodDC = new JFoodDataContext();
-                var varOrder = (from _Order in JFoodDC.Orders
+                BM_MealsDBContext BM_MealsDC = new BM_MealsDBContext();
+                var varOrder = (from _Order in BM_MealsDC.Orders
                                 where _Order.OrderID == int.Parse(lblOrderID.Text)
                                 select _Order).FirstOrDefault();
                 varOrder.OrderStatus = "Deleted";
-                JFoodDC.SubmitChanges();
+                //BM_MealsDC.SubmitChanges();
 
 
             }
@@ -458,18 +458,18 @@ namespace JFood
         {
             if (ReceiptID != 0)
             {
-                JFoodDataContext JFoodDC = new JFoodDataContext();
+                BM_MealsDBContext BM_MealsDC = new BM_MealsDBContext();
                 
-                var varReceipt = (from _Receipt in JFoodDC.Receipts
+                var varReceipt = (from _Receipt in BM_MealsDC.Receipts
                                   where _Receipt.ReceiptID == ReceiptID
                                   select _Receipt).FirstOrDefault();
                 varReceipt.ReceiptStatus = "Cash";
                 varReceipt.UserID = frmLogin.UserID;
                 varReceipt.ReceiptDate = DateTime.Now;
 
-                JFoodDC.SubmitChanges();
-                var __Receipt = JFoodDC.prntReceiptReceiptID(ReceiptID).ToList();
-                PrintReciept(__Receipt);
+                //BM_MealsDC.SubmitChanges();
+                //var __Receipt = BM_MealsDC.prntReceiptReceiptID(ReceiptID).ToList();
+                //PrintReciept(__Receipt);
                // PrintReciept(__Receipt);
                 ((frmPlacesTables)Application.OpenForms["frmPlacesTables"]).IntializePlaces();
                 Close();
@@ -482,9 +482,9 @@ namespace JFood
             {
                 if (ReceiptID != 0)
                 {
-                    JFoodDataContext JFoodDC = new JFoodDataContext();
+                    BM_MealsDBContext BM_MealsDC = new BM_MealsDBContext();
 
-                    var varReceipt = (from _Receipt in JFoodDC.Receipts
+                    var varReceipt = (from _Receipt in BM_MealsDC.Receipts
                                       where _Receipt.ReceiptID == ReceiptID
                                       select _Receipt).FirstOrDefault();
                     varReceipt.LocationID = frmSales.LocationID;
@@ -493,10 +493,10 @@ namespace JFood
                     varReceipt.ReceiptStatus = "Credit";
 
 
-                    JFoodDC.SubmitChanges();
-                    var __Receipt = JFoodDC.prntReceiptReceiptID(ReceiptID).ToList();
-                    PrintReciept(__Receipt);
-                    PrintReciept(__Receipt);
+                    //BM_MealsDC.SubmitChanges();
+                    //var __Receipt = BM_MealsDC.prntReceiptReceiptID(ReceiptID).ToList();
+                    //PrintReciept(__Receipt);
+                    //PrintReciept(__Receipt);
                     ((frmPlacesTables)Application.OpenForms["frmPlacesTables"]).IntializePlaces();
                     Close();
                 }
@@ -655,13 +655,13 @@ namespace JFood
 
                 lstOrder_OrderItems = new List<KeyValuePair<Order, List<OrderItem>>>();
 
-                List<Order> Orders = (from _Order in JFoodDC.Orders
+                List<Order> Orders = (from _Order in BM_MealsDC.Orders
                                       where _Order.ReceiptID == ReceiptID && _Order.OrderStatus == "Available"
                                       select _Order).ToList<Order>();
 
                 for (int i = 0; i < Orders.Count; i++)
                 {
-                    List<OrderItem> lstOrderItems = (from _OrderItems in JFoodDC.OrderItems
+                    List<OrderItem> lstOrderItems = (from _OrderItems in BM_MealsDC.OrderItems
                                                      where _OrderItems.OrderID == Orders[i].OrderID
                                                      select _OrderItems).ToList<OrderItem>();
 
@@ -700,13 +700,13 @@ namespace JFood
 
                 lstOrder_OrderItems = new List<KeyValuePair<Order, List<OrderItem>>>();
 
-                List<Order> Orders = (from _Order in JFoodDC.Orders
+                List<Order> Orders = (from _Order in BM_MealsDC.Orders
                                       where _Order.ReceiptID == ReceiptID && _Order.OrderStatus == "Available"
                                       select _Order).ToList<Order>();
 
                 for (int i = 0; i < Orders.Count; i++)
                 {
-                    List<OrderItem> lstOrderItems = (from _OrderItems in JFoodDC.OrderItems
+                    List<OrderItem> lstOrderItems = (from _OrderItems in BM_MealsDC.OrderItems
                                                      where _OrderItems.OrderID == Orders[i].OrderID
                                                      select _OrderItems).ToList<OrderItem>();
 
@@ -742,17 +742,17 @@ namespace JFood
         {
             if (ReceiptID != 0)
             {
-                JFoodDataContext JFoodDC = new JFoodDataContext();
+                BM_MealsDBContext BM_MealsDC = new BM_MealsDBContext();
 
-                var varReceipt = (from _Receipt in JFoodDC.Receipts
+                var varReceipt = (from _Receipt in BM_MealsDC.Receipts
                                   where _Receipt.ReceiptID == ReceiptID
                                   select _Receipt).FirstOrDefault();
                 varReceipt.UserID = frmLogin.UserID;
                 varReceipt.ReceiptDate = DateTime.Now;
                 varReceipt.ReceiptStatus = "Voucher";
-                JFoodDC.SubmitChanges();
-                var __Receipt = JFoodDC.prntReceiptReceiptID(ReceiptID).ToList();
-                PrintReciept(__Receipt);
+                //BM_MealsDC.SubmitChanges();
+                //var __Receipt = BM_MealsDC.prntReceiptReceiptID(ReceiptID).ToList();
+                //PrintReciept(__Receipt);
               //  PrintReciept(__Receipt);
                 ((frmPlacesTables)Application.OpenForms["frmPlacesTables"]).IntializePlaces();
                 Close();

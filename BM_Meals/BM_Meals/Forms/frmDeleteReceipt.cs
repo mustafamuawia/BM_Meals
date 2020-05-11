@@ -8,11 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmDeleteReceipt : Form
     {
-        JFoodDataContext JFoodDC;
+        BM_Meals.BM_MealsDBContext BM_MealsDC;
         public frmDeleteReceipt()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace JFood
 
         private void frmDeleteReceipt_Load(object sender, EventArgs e)
         {
-            JFoodDC = new JFoodDataContext();
+            BM_MealsDC = new BM_Meals.BM_MealsDBContext();
             //this.reportViewer1.RefreshReport();
         }
 
@@ -31,27 +31,27 @@ namespace JFood
             {
                 if (txtReceiptID.Text != "")
                 {
-                    txtReceiptID.Enabled = false;
-                    var _Receipt = JFoodDC.prntReceiptReceiptID(int.Parse(txtReceiptID.Text)).ToList();
+                   /* txtReceiptID.Enabled = false;
+                    var _Receipt = BM_MealsDC.prntReceiptReceiptID(int.Parse(txtReceiptID.Text)).ToList();
                     if (_Receipt.Count > 0)
                     {
                         prntReceiptReceiptIDResultBindingSource.DataSource = _Receipt;
                         btnDeleteReciept.Enabled = true;
-                    }
+                    }*/
                 }
             }
             else
             {
                 if (txtReceiptSerial.Text != "")
                 {
-                    txtReceiptSerial.Enabled = false;
+                    /*txtReceiptSerial.Enabled = false;
                     dtpReceiptDate.Enabled = false;
-                    var _Receipt = JFoodDC.prntReceiptSerial(int.Parse(txtReceiptSerial.Text), dtpReceiptDate.Value.Date).ToList();
+                    var _Receipt = BM_MealsDC.prntReceiptSerial(int.Parse(txtReceiptSerial.Text), dtpReceiptDate.Value.Date).ToList();
                     if (_Receipt.Count > 0)
                     {
                         prntReceiptReceiptIDResultBindingSource.DataSource = _Receipt;
                         btnDeleteReciept.Enabled = true;
-                    }
+                    }*/
                 }
             }
             reportViewer1.LocalReport.SetParameters(new ReportParameter("Header", "فول وتميس افغاني"));
@@ -66,12 +66,12 @@ namespace JFood
             {
                 if (radioButton1.Checked)
                 {
-                    JFoodDC.CancelReceiptByID(int.Parse(txtReceiptID.Text));
+                  //  BM_MealsDC.CancelReceiptByID(int.Parse(txtReceiptID.Text));
 
                 }
                 else
                 {
-                    JFoodDC.CancelReceiptBySerial(int.Parse(txtReceiptSerial.Text), dtpReceiptDate.Value.Date);
+                    //BM_MealsDC.CancelReceiptBySerial(int.Parse(txtReceiptSerial.Text), dtpReceiptDate.Value.Date);
                 }
                 ((frmPlacesTables)Application.OpenForms["frmPlacesTables"]).IntializePlaces();
                 Close();

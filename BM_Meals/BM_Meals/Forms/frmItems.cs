@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.Entity;
-namespace JFood
+
+namespace BM_Meals
 {
     public partial class frmItems : Form
     {
         Item Items;
         Category Categories;
         Department Department;
-        JFoodDataContext JFoodDC;
+        BM_MealsDBContext BM_MealsDC;
         public frmItems()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace JFood
         private void button1_Click(object sender, EventArgs e)
         {
             dgvItems.EndEdit();
-            JFoodDC.SubmitChanges();
+            //BM_MealsDC.SubmitChanges();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,12 +35,12 @@ namespace JFood
             Items = new Item();
             Categories = new Category();
             Department = new Department();
-            JFoodDC = new JFoodDataContext();
-            //int ReceiptSerial=int.Parse(JFoodDC.InsertReceipt(DateTime.Now, 0, 0, 0, 0, 0).ReturnValue.ToString());
+            BM_MealsDC = new BM_MealsDBContext();
+            //int ReceiptSerial=int.Parse(BM_MealsDC.InsertReceipt(DateTime.Now, 0, 0, 0, 0, 0).ReturnValue.ToString());
             
-            itemBindingSource.DataSource = JFoodDC.Items;
-            categoryBindingSource.DataSource = JFoodDC.Categories;
-            departmentBindingSource.DataSource = JFoodDC.Departments;
+            itemBindingSource.DataSource = BM_MealsDC.Items;
+            categoryBindingSource.DataSource = BM_MealsDC.Categories;
+            departmentBindingSource.DataSource = BM_MealsDC.Departments;
             dgvItems.DataSource = itemBindingSource;
             
         }

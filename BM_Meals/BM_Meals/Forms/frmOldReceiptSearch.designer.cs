@@ -1,4 +1,4 @@
-﻿namespace JFood
+﻿namespace BM_Meals
 {
     partial class frmOldReceiptSearch
     {
@@ -180,10 +180,6 @@
             this.مكانالطلبDataGridViewTextBoxColumn.Name = "مكانالطلبDataGridViewTextBoxColumn";
             this.مكانالطلبDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // searchOldReceiptsResultBindingSource
-            // 
-            this.searchOldReceiptsResultBindingSource.DataSource = typeof(JFood.SearchOldReceiptsResult);
-            // 
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -213,7 +209,7 @@
             // 
             // placeBindingSource
             // 
-            this.placeBindingSource.DataSource = typeof(JFood.Place);
+            this.placeBindingSource.DataSource = typeof(BM_Meals.Place);
             // 
             // comboBox2
             // 
@@ -229,7 +225,7 @@
             // 
             // locationBindingSource
             // 
-            this.locationBindingSource.DataSource = typeof(JFood.Location);
+            this.locationBindingSource.DataSource = typeof(BM_Meals.Location);
             // 
             // label3
             // 

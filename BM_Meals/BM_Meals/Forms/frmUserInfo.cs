@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmUserInfo : Form
     {
@@ -18,8 +18,8 @@ namespace JFood
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            JFoodDataContext JFoodDC = new JFoodDataContext();
-           int OldPassword =   (from _User in JFoodDC.Users
+            BM_MealsDBContext BM_MealsDC = new BM_MealsDBContext();
+           int OldPassword =   (from _User in BM_MealsDC.Users
                                       where _User.UserPassword == txtOldPassword.Text
                                       select _User).Count();
             if (OldPassword == 0)
@@ -30,13 +30,13 @@ namespace JFood
                 errorProvider1.SetError(txtPasswordConfirm, "لا بد ان يكون مطابق لكلمة المرور الجديدة");
             else
             {
-                User _User = (from _user in JFoodDC.Users
+                User _User = (from _user in BM_MealsDC.Users
                               where _user.UserID == frmLogin.UserID
                               select _user).FirstOrDefault();
 
                 _User.UserPassword = txtNewPassword.Text;
 
-                JFoodDC.SubmitChanges();
+                //BM_MealsDC.SubmitChanges();
 
                 txtOldPassword.Text = txtPasswordConfirm.Text = txtNewPassword.Text = "";
                 MessageBox.Show("تم تعديل كلمة السر");

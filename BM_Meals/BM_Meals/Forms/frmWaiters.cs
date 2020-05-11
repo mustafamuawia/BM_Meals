@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JFood
+namespace BM_Meals
 {
     public partial class frmWaiters : Form
     {
@@ -30,9 +30,9 @@ namespace JFood
 
         private void frmWaiters_Load(object sender, EventArgs e)
         {
-            JFoodDataContext JFoodDC = new JFoodDataContext();
+            BM_MealsDBContext BM_MealsDC = new BM_MealsDBContext();
             
-            var _Waiters = (from _Waiter in JFoodDC.Waiters
+            var _Waiters = (from _Waiter in BM_MealsDC.Waiters
                            select _Waiter).ToList<Waiter>();
 
 
