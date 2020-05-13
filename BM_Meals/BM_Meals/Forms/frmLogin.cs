@@ -16,7 +16,14 @@ namespace BM_Meals
         BM_MealsDBContext BM_MealsDC; 
         public frmLogin()
         {
-            InitializeComponent();
+            BM_MealsDC = new BM_MealsDBContext();
+            var UsersTable = (from Users in BM_MealsDC.Users
+                              where Users.UserID != frmLogin.UserID
+                              select Users).ToList();
+            if (UsersTable.Count == 0)
+                new frmAdminPassword().ShowDialog(); 
+
+                    InitializeComponent();
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -32,7 +39,7 @@ namespace BM_Meals
             cbUsers.ValueMember = "UserID";
             if (cbUsers.Items.Count != 0)
                 cbUsers.SelectedIndex = 0;
-
+          
 
         }
 
@@ -61,7 +68,7 @@ namespace BM_Meals
         private void btnEnter_Click(object sender, EventArgs e)
         {
             
-            User varUser = BM_MealsDC.Users.SingleOrDefault(User =>User.Username==cbUsers.Text && User.UserPassword==textBox1.Text && User.UserStatus == "مفعل");
+            User varUser = BM_MealsDC.Users.SingleOrDefault(User =>User.Username==cbUsers.Text && User.UserPassword==textBox1.Text && User.UserStatus == "Active");
             if (varUser != null)
             {
                 errorProvider1.SetError(textBox1, "");

@@ -82,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BM_MealsDBContext.cs" />
+    <Compile Include="Forms\frmAdminPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAdminPassword.Designer.cs">
+      <DependentUpon>frmAdminPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmCancelOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     <Compile Include="SQLiteMigrationTool\SQLiteProviderManifestHelper.cs" />
     <Compile Include="SQLiteMigrationTool\SQLiteProviderServicesHelper.cs" />
     <Compile Include="SQLiteMigrationTool\TypeUsageHelpers.cs" />
+    <EmbeddedResource Include="Forms\frmAdminPassword.resx">
+      <DependentUpon>frmAdminPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCancelOrder.resx">
       <DependentUpon>frmCancelOrder.cs</DependentUpon>
     </EmbeddedResource>

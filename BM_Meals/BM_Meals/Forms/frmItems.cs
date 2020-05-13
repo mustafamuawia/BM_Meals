@@ -38,9 +38,9 @@ namespace BM_Meals
             BM_MealsDC = new BM_MealsDBContext();
             //int ReceiptSerial=int.Parse(BM_MealsDC.InsertReceipt(DateTime.Now, 0, 0, 0, 0, 0).ReturnValue.ToString());
             
-            itemBindingSource.DataSource = BM_MealsDC.Items;
-            categoryBindingSource.DataSource = BM_MealsDC.Categories;
-            departmentBindingSource.DataSource = BM_MealsDC.Departments;
+            itemBindingSource.DataSource = BM_MealsDC.Items.ToList();
+            categoryBindingSource.DataSource = BM_MealsDC.Categories.ToList();
+            departmentBindingSource.DataSource = BM_MealsDC.Departments.ToList();
             dgvItems.DataSource = itemBindingSource;
             
         }

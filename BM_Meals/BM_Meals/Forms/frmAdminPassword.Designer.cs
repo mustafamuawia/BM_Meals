@@ -1,6 +1,6 @@
 ﻿namespace BM_Meals
 {
-    partial class frmLogin
+    partial class frmAdminPassword
     {
         /// <summary>
         /// Required designer variable.
@@ -41,9 +41,11 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btn0 = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cbUsers = new System.Windows.Forms.ComboBox();
+            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             // 
             this.btn7.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn7.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn7.Location = new System.Drawing.Point(27, 139);
+            this.btn7.Location = new System.Drawing.Point(23, 216);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(78, 61);
             this.btn7.TabIndex = 2;
@@ -65,7 +67,7 @@
             // 
             this.btn8.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn8.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn8.Location = new System.Drawing.Point(118, 139);
+            this.btn8.Location = new System.Drawing.Point(114, 216);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(78, 61);
             this.btn8.TabIndex = 3;
@@ -79,7 +81,7 @@
             // 
             this.btn9.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn9.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn9.Location = new System.Drawing.Point(212, 139);
+            this.btn9.Location = new System.Drawing.Point(208, 216);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(78, 61);
             this.btn9.TabIndex = 4;
@@ -93,7 +95,7 @@
             // 
             this.btn4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn4.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn4.Location = new System.Drawing.Point(27, 215);
+            this.btn4.Location = new System.Drawing.Point(23, 292);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(78, 61);
             this.btn4.TabIndex = 5;
@@ -107,7 +109,7 @@
             // 
             this.btn5.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn5.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn5.Location = new System.Drawing.Point(118, 215);
+            this.btn5.Location = new System.Drawing.Point(114, 292);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(78, 61);
             this.btn5.TabIndex = 6;
@@ -121,7 +123,7 @@
             // 
             this.btn6.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn6.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn6.Location = new System.Drawing.Point(212, 215);
+            this.btn6.Location = new System.Drawing.Point(208, 292);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(78, 61);
             this.btn6.TabIndex = 7;
@@ -135,7 +137,7 @@
             // 
             this.btn1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn1.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn1.Location = new System.Drawing.Point(27, 292);
+            this.btn1.Location = new System.Drawing.Point(23, 369);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(78, 61);
             this.btn1.TabIndex = 8;
@@ -149,7 +151,7 @@
             // 
             this.btn2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn2.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn2.Location = new System.Drawing.Point(118, 292);
+            this.btn2.Location = new System.Drawing.Point(114, 369);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(78, 61);
             this.btn2.TabIndex = 9;
@@ -163,7 +165,7 @@
             // 
             this.btn3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn3.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn3.Location = new System.Drawing.Point(212, 292);
+            this.btn3.Location = new System.Drawing.Point(208, 369);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(78, 61);
             this.btn3.TabIndex = 10;
@@ -177,10 +179,10 @@
             // 
             this.btnClear.BackColor = System.Drawing.Color.SkyBlue;
             this.btnClear.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(27, 373);
+            this.btnClear.Location = new System.Drawing.Point(23, 450);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(78, 61);
-            this.btnClear.TabIndex = 12;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Tag = "Clear";
             this.btnClear.Text = "حذف";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -192,10 +194,10 @@
             // 
             this.btn0.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btn0.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn0.Location = new System.Drawing.Point(118, 373);
+            this.btn0.Location = new System.Drawing.Point(114, 450);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(78, 61);
-            this.btn0.TabIndex = 11;
+            this.btn0.TabIndex = 12;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = false;
             this.btn0.Click += new System.EventHandler(this.btn_Click);
@@ -206,50 +208,77 @@
             // 
             this.btnEnter.BackColor = System.Drawing.Color.SkyBlue;
             this.btnEnter.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.Location = new System.Drawing.Point(212, 373);
+            this.btnEnter.Location = new System.Drawing.Point(208, 450);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(78, 61);
-            this.btnEnter.TabIndex = 0;
+            this.btnEnter.TabIndex = 13;
             this.btnEnter.Tag = "Enter";
-            this.btnEnter.Text = "دخول";
+            this.btnEnter.Text = "حفظ";
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             this.btnEnter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.btnEnter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_KeyPress);
             // 
-            // textBox1
+            // txtPassword
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(27, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(263, 43);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.UseSystemPasswordChar = true;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_KeyPress);
+            this.txtPassword.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(23, 108);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.ShortcutsEnabled = false;
+            this.txtPassword.Size = new System.Drawing.Size(263, 43);
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_KeyPress);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // cbUsers
+            // txtPasswordConfirm
             // 
-            this.cbUsers.Font = new System.Drawing.Font("Tahoma", 21F);
-            this.cbUsers.FormattingEnabled = true;
-            this.cbUsers.Location = new System.Drawing.Point(27, 29);
-            this.cbUsers.Name = "cbUsers";
-            this.cbUsers.Size = new System.Drawing.Size(263, 42);
-            this.cbUsers.TabIndex = 13;
+            this.txtPasswordConfirm.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(23, 157);
+            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.ShortcutsEnabled = false;
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(263, 43);
+            this.txtPasswordConfirm.TabIndex = 0;
+            this.txtPasswordConfirm.UseSystemPasswordChar = true;
+            this.txtPasswordConfirm.Click += new System.EventHandler(this.txtPasswordConfirm_Click);
+            this.txtPasswordConfirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
+            this.txtPasswordConfirm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_KeyPress);
             // 
-            // frmLogin
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Tahoma", 21F);
+            this.lblUser.Location = new System.Drawing.Point(67, 16);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(200, 34);
+            this.lblUser.TabIndex = 13;
+            this.lblUser.Text = "اسم المستخدم";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Tahoma", 21F);
+            this.lblUsername.Location = new System.Drawing.Point(108, 58);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(93, 34);
+            this.lblUsername.TabIndex = 13;
+            this.lblUsername.Text = "Admin";
+            // 
+            // frmAdminPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(321, 446);
-            this.Controls.Add(this.cbUsers);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(321, 523);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblUser);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtPasswordConfirm);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.btn0);
             this.Controls.Add(this.btn3);
@@ -265,11 +294,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmLogin";
+            this.Name = "frmAdminPassword";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "تسجيل الدخول";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Load += new System.EventHandler(this.frmAdminPassword_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Control_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -292,8 +321,10 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btn0;
         private System.Windows.Forms.Button btnEnter;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ComboBox cbUsers;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.TextBox txtPasswordConfirm;
     }
 }
