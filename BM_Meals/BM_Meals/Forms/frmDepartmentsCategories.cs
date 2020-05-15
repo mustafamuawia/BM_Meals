@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,6 @@ namespace BM_Meals
 {
     public partial class frmDepartmentsCategories : Form
     {
-        IQueryable Waiters;
-        IQueryable Categories;
-        IQueryable Departments;
         BM_Meals.BM_MealsDBContext BM_MealsDC;
         public frmDepartmentsCategories()
         {
@@ -23,14 +21,13 @@ namespace BM_Meals
         private void frmDepartmentsCategories_Load(object sender, EventArgs e)
         {
             BM_MealsDC = new BM_Meals.BM_MealsDBContext();
-            Waiters = from _Waiter in BM_MealsDC.Waiters select _Waiter;
-            Categories = from _Category in BM_MealsDC.Categories select _Category;
-            Departments = from _Dpartment in BM_MealsDC.Departments select _Dpartment;
             
-            
-            waiterBindingSource.DataSource = BM_MealsDC.Waiters;
-            categoryBindingSource.DataSource = BM_MealsDC.Categories;
-            departmentBindingSource.DataSource = BM_MealsDC.Departments;
+            BM_MealsDC.Waiters.Load();
+            BM_MealsDC.Categories.Load();
+            BM_MealsDC.Departments.Load();
+            waiterBindingSource.DataSource = BM_MealsDC.Waiters.Local.ToBindingList<Waiter>();
+            categoryBindingSource.DataSource = BM_MealsDC.Categories.Local.ToBindingList<Category>();
+            departmentBindingSource.DataSource = BM_MealsDC.Departments.Local.ToBindingList<Department>();
             dgvWaiters.DataSource = waiterBindingSource;
             dgvCategories.DataSource = categoryBindingSource;
             dgvDepartments.DataSource = departmentBindingSource;
@@ -44,7 +41,7 @@ namespace BM_Meals
            // BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Categories);
             //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
 
-            //BM_MealsDC.SubmitChanges();
+            BM_MealsDC.SaveChanges();
 
             frmDepartmentsCategories_Load(null, null);
             MessageBox.Show("تم الحفظ");
@@ -54,10 +51,10 @@ namespace BM_Meals
         {
             
             dgvCategories.EndEdit();
-
+            
             //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Waiters);
             //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
-            //BM_MealsDC.SubmitChanges();
+            BM_MealsDC.SaveChanges();
             frmDepartmentsCategories_Load(null, null);
             MessageBox.Show("تم الحفظ");
         }
@@ -69,7 +66,7 @@ namespace BM_Meals
             //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Categories);
             //BM_MealsDC.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, Departments);
             
-            //BM_MealsDC.SubmitChanges();
+            BM_MealsDC.SaveChanges();
             frmDepartmentsCategories_Load(null, null);
             MessageBox.Show("تم الحفظ");
         }

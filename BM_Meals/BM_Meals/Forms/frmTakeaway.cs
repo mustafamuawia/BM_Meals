@@ -376,9 +376,17 @@ namespace BM_Meals
 
                     if (ReceiptID == 0)
                     {
+                    //decimal ReceiptTotal = decimal.Parse(dataGridView1.Rows.Cast<DataGridViewRow>().Sum(Row => decimal.Parse(Row.Cells["Total"].Value.ToString())).ToString());
+                    var _Receipt = new Receipt();
+                    _Receipt.ReceiptDate = DateTime.Now;
+                    _Receipt.ReceiptTotal = decimal.Parse(lblTotal.Text);
+                    _Receipt.UserID = frmLogin.UserID;
+                    BM_MealsDC.Receipts.Add(_Receipt);
+                    BM_MealsDC.SaveChanges();
+                    ReceiptID = _Receipt.ReceiptID;
 
-                        //ReceiptID = BM_MealsDC.InsertReceipt(DateTime.Now, decimal.Parse(lblTotal.Text), frmLogin.UserID, 0, 0, 0, 0).First().ReceiptID;
-                        // decimal ReceiptTotal = decimal.Parse(dataGridView1.Rows.Cast<DataGridViewRow>().Sum(Row => decimal.Parse(Row.Cells["Total"].Value.ToString())).ToString());
+
+
                     }
                     else
                     {
@@ -386,9 +394,9 @@ namespace BM_Meals
                                           where _Receipt.ReceiptID == ReceiptID
                                           select _Receipt).FirstOrDefault();
 
-                      //  varReceipt.ReceiptTotal = varReceipt.ReceiptTotal + decimal.Parse(lblTotal.Text);
+                       varReceipt.ReceiptTotal = varReceipt.ReceiptTotal + decimal.Parse(lblTotal.Text);
                        // varReceipt.ServiceFees = varReceipt.ServiceFees + Convert.ToInt32(decimal.Parse(lblTotal.Text) * ServiceFees / 100);
-                       // BM_MealsDC.SubmitChanges();
+                       BM_MealsDC.SaveChanges();
 
                     }
 
@@ -401,9 +409,21 @@ namespace BM_Meals
                         lstOrder = new List<OrderItem>();
                         decimal OrderTotal = Convert.ToDecimal(dataGridView1.Rows.Cast<DataGridViewRow>().Where(_Row => _Row.Cells["DepartmentID"].Value.ToString()==DepartmentID.ToString())
                             .Sum(Row => decimal.Parse(Row.Cells["Total"].Value.ToString())).ToString());
-                        //OrderID = BM_MealsDC.InsertOrder(ReceiptID, "Available", frmLogin.UserID, 0, OrderTotal, DateTime.Now,
+                    Order _Order = new Order();
+                    _Order.ReceiptID = ReceiptID;
+                    _Order.OrderStatus = "Available";
+                    _Order.UserID = frmLogin.UserID;
+                    _Order.WaiterID= 0;
+                    _Order.OrderTotal = OrderTotal;
+                    _Order.OrderDate = DateTime.Now;
+                    _Order.OrderStatus = "TakeAway";
+                    BM_MealsDC.Orders.Add(_Order);
+                    BM_MealsDC.SaveChanges();
+                    OrderID = _Order.OrderID;
+                  //0, "سفري"
+                  //OrderID = BM_MealsDC.InsertOrder(ReceiptID, "Available", frmLogin.UserID, 0, OrderTotal, DateTime.Now,
                   //0, "سفري").First().orderid;
-                        for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
                         {
                             OrderItem _OrderItem = new OrderItem();
 
@@ -413,9 +433,9 @@ namespace BM_Meals
                                 _OrderItem.ItemText = dataGridView1.Rows[i].Cells["ItemName"].Value.ToString();
                                 _OrderItem.ItemPrice = decimal.Parse((dataGridView1.Rows[i].Cells["Price"].Value.ToString()));
                                 _OrderItem.ItemQTY = int.Parse(dataGridView1.Rows[i].Cells["QTY"].Value.ToString());
-                                //_OrderItem.OrderID = OrderID;
+                                _OrderItem.OrderID = OrderID;
                                 _OrderItem.TotalPrice = _OrderItem.ItemPrice * _OrderItem.ItemQTY;
-                                //BM_MealsDC.OrderItems.InsertOnSubmit(_OrderItem);
+                                BM_MealsDC.OrderItems.Add(_OrderItem);
                                 //BM_MealsDC.SubmitChanges();
                                 lstOrder.Add(_OrderItem);
                             }

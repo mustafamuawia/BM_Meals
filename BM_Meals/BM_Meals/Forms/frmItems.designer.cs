@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.DepartmentID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DepartmentID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
@@ -69,6 +69,29 @@
             this.dgvItems.Size = new System.Drawing.Size(846, 208);
             this.dgvItems.TabIndex = 0;
             // 
+            // DepartmentID
+            // 
+            this.DepartmentID.DataPropertyName = "DepartmentID";
+            this.DepartmentID.DataSource = this.departmentBindingSource;
+            this.DepartmentID.DisplayMember = "DepartmentName";
+            this.DepartmentID.HeaderText = "القسم";
+            this.DepartmentID.Name = "DepartmentID";
+            this.DepartmentID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DepartmentID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DepartmentID.ValueMember = "DepartmentID";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSave.Location = new System.Drawing.Point(589, 316);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(112, 63);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "حفظ";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.button1_Click);
+            // 
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "ItemsID";
@@ -95,17 +118,6 @@
             // categoryBindingSource
             // 
             this.categoryBindingSource.DataSource = typeof(BM_Meals.Category);
-            // 
-            // DepartmentID
-            // 
-            this.DepartmentID.DataPropertyName = "DepartmentID";
-            this.DepartmentID.DataSource = this.departmentBindingSource;
-            this.DepartmentID.DisplayMember = "DepartmentName";
-            this.DepartmentID.HeaderText = "القسم";
-            this.DepartmentID.Name = "DepartmentID";
-            this.DepartmentID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DepartmentID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.DepartmentID.ValueMember = "DepartmentID";
             // 
             // departmentBindingSource
             // 
@@ -135,18 +147,6 @@
             // itemBindingSource
             // 
             this.itemBindingSource.DataSource = typeof(BM_Meals.Item);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSave.Location = new System.Drawing.Point(866, 307);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(112, 63);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "حفظ";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmItems
             // 

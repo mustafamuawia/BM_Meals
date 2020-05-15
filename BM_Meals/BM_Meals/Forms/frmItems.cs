@@ -24,23 +24,19 @@ namespace BM_Meals
         private void button1_Click(object sender, EventArgs e)
         {
             dgvItems.EndEdit();
-            //BM_MealsDC.SubmitChanges();
+            BM_MealsDC.SaveChanges();
+            MessageBox.Show("تم الحفظ بنجاح");
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            
-
-            Items = new Item();
-            Categories = new Category();
-            Department = new Department();
             BM_MealsDC = new BM_MealsDBContext();
-            //int ReceiptSerial=int.Parse(BM_MealsDC.InsertReceipt(DateTime.Now, 0, 0, 0, 0, 0).ReturnValue.ToString());
-            
-            itemBindingSource.DataSource = BM_MealsDC.Items.ToList();
-            categoryBindingSource.DataSource = BM_MealsDC.Categories.ToList();
-            departmentBindingSource.DataSource = BM_MealsDC.Departments.ToList();
+            BM_MealsDC.Departments.Load();
+            BM_MealsDC.Items.Load();
+            BM_MealsDC.Categories.Load();
+            itemBindingSource.DataSource = BM_MealsDC.Items.Local.ToBindingList<Item>();
+            categoryBindingSource.DataSource = BM_MealsDC.Categories.Local.ToBindingList<Category>();
+            departmentBindingSource.DataSource = BM_MealsDC.Departments.Local.ToBindingList<Department>();
             dgvItems.DataSource = itemBindingSource;
             
         }
