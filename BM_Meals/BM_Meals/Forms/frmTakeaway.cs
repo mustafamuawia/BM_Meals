@@ -376,10 +376,10 @@ namespace BM_Meals
 
                     if (ReceiptID == 0)
                     {
-                    //decimal ReceiptTotal = decimal.Parse(dataGridView1.Rows.Cast<DataGridViewRow>().Sum(Row => decimal.Parse(Row.Cells["Total"].Value.ToString())).ToString());
+                    decimal ReceiptTotal = decimal.Parse(dataGridView1.Rows.Cast<DataGridViewRow>().Sum(Row => decimal.Parse(Row.Cells["Total"].Value.ToString())).ToString());
                     var _Receipt = new Receipt();
                     _Receipt.ReceiptDate = DateTime.Now;
-                    _Receipt.ReceiptTotal = decimal.Parse(lblTotal.Text);
+                    _Receipt.ReceiptTotal = ReceiptTotal;
                     _Receipt.UserID = frmLogin.UserID;
                     BM_MealsDC.Receipts.Add(_Receipt);
                     BM_MealsDC.SaveChanges();
@@ -436,20 +436,21 @@ namespace BM_Meals
                                 _OrderItem.OrderID = OrderID;
                                 _OrderItem.TotalPrice = _OrderItem.ItemPrice * _OrderItem.ItemQTY;
                                 BM_MealsDC.OrderItems.Add(_OrderItem);
-                                //BM_MealsDC.SubmitChanges();
+                                
                                 lstOrder.Add(_OrderItem);
-                            }
+                            BM_MealsDC.SaveChanges();
                         }
+                    }
                         string Department = (from _Dept in BM_MealsDC.Departments
                                              where _Dept.DepartmentID == DepartmentID
                                              select _Dept.DepartmentName).First().ToString();
 
                     
-                     // PrintDepartment(OrderID);
+                      PrintDepartment(OrderID);
                       btnCash_Click(null, null);    
                   //  }
                     ((frmPlacesTables)Application.OpenForms["frmPlacesTables"]).IntializePlaces();
-                    Close();
+                  //  Close();
                 } 
             }
         }

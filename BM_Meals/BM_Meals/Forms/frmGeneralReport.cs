@@ -22,6 +22,7 @@ namespace BM_Meals
         {
             BM_MealsDC = new BM_MealsDBContext();
             //this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
 
         private void btnOpenReciept_Click(object sender, EventArgs e)
@@ -54,6 +55,9 @@ namespace BM_Meals
             dtpDateTo.Enabled = chPeriod.Checked;
         }
 
-        
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

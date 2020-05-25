@@ -65,9 +65,7 @@
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -86,6 +84,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -205,6 +204,10 @@
     <Compile Include="Forms\frmWaiters.designer.cs">
       <DependentUpon>frmWaiters.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005250054505_Add PlaceID in Orders.cs" />
+    <Compile Include="Migrations\202005250054505_Add PlaceID in Orders.designer.cs">
+      <DependentUpon>202005250054505_Add PlaceID in Orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Item.cs" />
@@ -279,6 +282,9 @@
     <EmbeddedResource Include="Forms\frmWaiters.resx">
       <DependentUpon>frmWaiters.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005250054505_Add PlaceID in Orders.resx">
+      <DependentUpon>202005250054505_Add PlaceID in Orders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -292,7 +298,7 @@
     <None Include="packages.config" />
     <None Include="Reports\Order.rdlc" />
     <None Include="Reports\Receipt.rdlc" />
-    <None Include="Reports\rptGeneral.rdlc" />
+    <EmbeddedResource Include="Reports\rptGeneral.rdlc" />
     <None Include="Reports\rptSales.rdlc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

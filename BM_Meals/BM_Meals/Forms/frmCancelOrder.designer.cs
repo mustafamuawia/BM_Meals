@@ -33,8 +33,8 @@
             this.GetOrderByIDResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbOrderSerial = new System.Windows.Forms.RadioButton();
+            this.rbOrderID = new System.Windows.Forms.RadioButton();
             this.btnOpenReciept = new System.Windows.Forms.Button();
             this.btnDeleteReciept = new System.Windows.Forms.Button();
             this.dtpReceiptDate = new System.Windows.Forms.DateTimePicker();
@@ -82,34 +82,34 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.rbOrderSerial);
+            this.panel1.Controls.Add(this.rbOrderID);
             this.panel1.Location = new System.Drawing.Point(564, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(92, 78);
             this.panel1.TabIndex = 3;
             // 
-            // radioButton2
+            // rbOrderSerial
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(8, 58);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.rbOrderSerial.AutoSize = true;
+            this.rbOrderSerial.Location = new System.Drawing.Point(8, 58);
+            this.rbOrderSerial.Name = "rbOrderSerial";
+            this.rbOrderSerial.Size = new System.Drawing.Size(14, 13);
+            this.rbOrderSerial.TabIndex = 0;
+            this.rbOrderSerial.UseVisualStyleBackColor = true;
+            this.rbOrderSerial.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // radioButton1
+            // rbOrderID
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(8, 11);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rbOrderID.AutoSize = true;
+            this.rbOrderID.Checked = true;
+            this.rbOrderID.Location = new System.Drawing.Point(8, 11);
+            this.rbOrderID.Name = "rbOrderID";
+            this.rbOrderID.Size = new System.Drawing.Size(14, 13);
+            this.rbOrderID.TabIndex = 0;
+            this.rbOrderID.TabStop = true;
+            this.rbOrderID.UseVisualStyleBackColor = true;
+            this.rbOrderID.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // btnOpenReciept
             // 
@@ -237,8 +237,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDeleteReciept;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbOrderSerial;
+        private System.Windows.Forms.RadioButton rbOrderID;
         private System.Windows.Forms.Button btnOpenReciept;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource GetOrderByIDResultBindingSource;

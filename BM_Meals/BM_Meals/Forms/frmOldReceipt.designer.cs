@@ -29,23 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.prntReceiptReceiptIDResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.prntReceiptReceiptIDResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "dsPrintReceipt";
-            reportDataSource1.Value = this.prntReceiptReceiptIDResultBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BM_Meals.Receipt.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(668, 655);
-            this.reportViewer1.TabIndex = 1;
+            this.reportViewer1.Name = "ReportViewer";
+            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.TabIndex = 0;
             // 
             // frmOldReceipt
             // 
@@ -53,7 +47,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(668, 655);
-            this.Controls.Add(this.reportViewer1);
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmOldReceipt";
@@ -67,9 +60,7 @@
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource prntReceiptReceiptIDResultBindingSource;
-
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

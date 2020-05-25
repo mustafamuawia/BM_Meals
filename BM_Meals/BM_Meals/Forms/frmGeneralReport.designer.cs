@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.rptGeneralResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rptSalesServiceResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.chPeriod = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,13 +40,12 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnOpenReciept = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.rptSalesServiceResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.rptGeneralResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rptSalesServiceResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rptSalesServiceResultBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -69,6 +68,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.reportViewer1);
+            this.splitContainer1.Panel2.Enabled = false;
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(668, 655);
             this.splitContainer1.SplitterDistance = 108;
             this.splitContainer1.SplitterWidth = 6;
@@ -156,14 +157,10 @@
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "dsGeneral";
             reportDataSource1.Value = this.rptGeneralResultBindingSource;
-            reportDataSource2.Name = "dsService";
-            reportDataSource2.Value = this.rptSalesServiceResultBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BM_Meals.rptGeneral.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BM_Meals.Reports.rptGeneral.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.reportViewer1.Size = new System.Drawing.Size(668, 541);
             this.reportViewer1.TabIndex = 0;
             // 
@@ -181,12 +178,12 @@
             this.Text = "حذف ايصال";
             this.Load += new System.EventHandler(this.frmDeleteReceipt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rptGeneralResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rptSalesServiceResultBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rptSalesServiceResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,7 +191,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Button btnOpenReciept;
         private System.Windows.Forms.CheckBox chPeriod;
         private System.Windows.Forms.Label label2;
@@ -203,5 +199,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.BindingSource rptGeneralResultBindingSource;
         private System.Windows.Forms.BindingSource rptSalesServiceResultBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

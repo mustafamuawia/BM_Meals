@@ -31,27 +31,28 @@ namespace BM_Meals
             {
                 if (txtReceiptID.Text != "")
                 {
-                   /* txtReceiptID.Enabled = false;
-                    var _Receipt = BM_MealsDC.prntReceiptReceiptID(int.Parse(txtReceiptID.Text)).ToList();
+                   txtReceiptID.Enabled = false;
+                    var _Receipt = BM_MealsDC.Receipts.Where(_receipt=>_receipt.ReceiptID== int.Parse(txtReceiptID.Text)).ToList();
                     if (_Receipt.Count > 0)
                     {
                         prntReceiptReceiptIDResultBindingSource.DataSource = _Receipt;
                         btnDeleteReciept.Enabled = true;
-                    }*/
+                    }
                 }
             }
             else
             {
                 if (txtReceiptSerial.Text != "")
                 {
-                    /*txtReceiptSerial.Enabled = false;
+                    txtReceiptSerial.Enabled = false;
                     dtpReceiptDate.Enabled = false;
-                    var _Receipt = BM_MealsDC.prntReceiptSerial(int.Parse(txtReceiptSerial.Text), dtpReceiptDate.Value.Date).ToList();
+                    var _Receipt = BM_MealsDC.Receipts.Where(_receipt => _receipt.ReceiptSerial == int.Parse(txtReceiptSerial.Text) && 
+                    _receipt.ReceiptDate.Value.Date==dtpReceiptDate.Value.Date).ToList();
                     if (_Receipt.Count > 0)
                     {
                         prntReceiptReceiptIDResultBindingSource.DataSource = _Receipt;
                         btnDeleteReciept.Enabled = true;
-                    }*/
+                    }
                 }
             }
             reportViewer1.LocalReport.SetParameters(new ReportParameter("Header", "فول وتميس افغاني"));
@@ -66,12 +67,16 @@ namespace BM_Meals
             {
                 if (radioButton1.Checked)
                 {
-                  //  BM_MealsDC.CancelReceiptByID(int.Parse(txtReceiptID.Text));
+                    var _Receipt = BM_MealsDC.Receipts.Where(_receipt => _receipt.ReceiptID == int.Parse(txtReceiptID.Text)).FirstOrDefault();
+                    _Receipt.ReceiptStatus = "Canceled";
+                    BM_MealsDC.SaveChanges();
 
                 }
                 else
                 {
-                    //BM_MealsDC.CancelReceiptBySerial(int.Parse(txtReceiptSerial.Text), dtpReceiptDate.Value.Date);
+                    var _Receipt = BM_MealsDC.Receipts.Where(_receipt => _receipt.ReceiptSerial== int.Parse(txtReceiptSerial.Text)).FirstOrDefault();
+                    _Receipt.ReceiptStatus = "Canceled";
+                    BM_MealsDC.SaveChanges();
                 }
                 ((frmPlacesTables)Application.OpenForms["frmPlacesTables"]).IntializePlaces();
                 Close();

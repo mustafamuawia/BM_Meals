@@ -35,20 +35,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.chPeriod = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.رقمالوصلDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.المتسلسلDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.تاريخالوصلDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.الجملةDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.مكانالطلبDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchOldReceiptsResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnSearch = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbPlaces = new System.Windows.Forms.ComboBox();
             this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbLocations = new System.Windows.Forms.ComboBox();
             this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbPaymentMethod = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchOldReceiptsResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
@@ -128,12 +123,6 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.رقمالوصلDataGridViewTextBoxColumn,
-            this.المتسلسلDataGridViewTextBoxColumn,
-            this.تاريخالوصلDataGridViewTextBoxColumn,
-            this.الجملةDataGridViewTextBoxColumn,
-            this.مكانالطلبDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.searchOldReceiptsResultBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(156, 161);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -144,41 +133,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(900, 306);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
-            // 
-            // رقمالوصلDataGridViewTextBoxColumn
-            // 
-            this.رقمالوصلDataGridViewTextBoxColumn.DataPropertyName = "رقم_الوصل";
-            this.رقمالوصلDataGridViewTextBoxColumn.HeaderText = "رقم_الوصل";
-            this.رقمالوصلDataGridViewTextBoxColumn.Name = "رقمالوصلDataGridViewTextBoxColumn";
-            this.رقمالوصلDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // المتسلسلDataGridViewTextBoxColumn
-            // 
-            this.المتسلسلDataGridViewTextBoxColumn.DataPropertyName = "المتسلسل";
-            this.المتسلسلDataGridViewTextBoxColumn.HeaderText = "المتسلسل";
-            this.المتسلسلDataGridViewTextBoxColumn.Name = "المتسلسلDataGridViewTextBoxColumn";
-            this.المتسلسلDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // تاريخالوصلDataGridViewTextBoxColumn
-            // 
-            this.تاريخالوصلDataGridViewTextBoxColumn.DataPropertyName = "تاريخ_الوصل";
-            this.تاريخالوصلDataGridViewTextBoxColumn.HeaderText = "تاريخ_الوصل";
-            this.تاريخالوصلDataGridViewTextBoxColumn.Name = "تاريخالوصلDataGridViewTextBoxColumn";
-            this.تاريخالوصلDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // الجملةDataGridViewTextBoxColumn
-            // 
-            this.الجملةDataGridViewTextBoxColumn.DataPropertyName = "الجملة";
-            this.الجملةDataGridViewTextBoxColumn.HeaderText = "الجملة";
-            this.الجملةDataGridViewTextBoxColumn.Name = "الجملةDataGridViewTextBoxColumn";
-            this.الجملةDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // مكانالطلبDataGridViewTextBoxColumn
-            // 
-            this.مكانالطلبDataGridViewTextBoxColumn.DataPropertyName = "مكان_الطلب";
-            this.مكانالطلبDataGridViewTextBoxColumn.HeaderText = "مكان_الطلب";
-            this.مكانالطلبDataGridViewTextBoxColumn.Name = "مكانالطلبDataGridViewTextBoxColumn";
-            this.مكانالطلبDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // btnSearch
             // 
@@ -194,34 +148,34 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // comboBox1
+            // cbPlaces
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DataSource = this.placeBindingSource;
-            this.comboBox1.DisplayMember = "PlaceName";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(464, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 24;
-            this.comboBox1.ValueMember = "PlaceID";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbPlaces.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbPlaces.DataSource = this.placeBindingSource;
+            this.cbPlaces.DisplayMember = "PlaceName";
+            this.cbPlaces.FormattingEnabled = true;
+            this.cbPlaces.Location = new System.Drawing.Point(464, 21);
+            this.cbPlaces.Name = "cbPlaces";
+            this.cbPlaces.Size = new System.Drawing.Size(121, 26);
+            this.cbPlaces.TabIndex = 24;
+            this.cbPlaces.ValueMember = "PlaceID";
+            this.cbPlaces.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // placeBindingSource
             // 
             this.placeBindingSource.DataSource = typeof(BM_Meals.Place);
             // 
-            // comboBox2
+            // cbLocations
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.DataSource = this.locationBindingSource;
-            this.comboBox2.DisplayMember = "LocationName";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(464, 86);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 26);
-            this.comboBox2.TabIndex = 24;
-            this.comboBox2.ValueMember = "LocationID";
+            this.cbLocations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbLocations.DataSource = this.locationBindingSource;
+            this.cbLocations.DisplayMember = "LocationName";
+            this.cbLocations.FormattingEnabled = true;
+            this.cbLocations.Location = new System.Drawing.Point(464, 86);
+            this.cbLocations.Name = "cbLocations";
+            this.cbLocations.Size = new System.Drawing.Size(121, 26);
+            this.cbLocations.TabIndex = 24;
+            this.cbLocations.ValueMember = "LocationID";
             // 
             // locationBindingSource
             // 
@@ -253,22 +207,22 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "مكان الطلب:";
             // 
-            // comboBox3
+            // cbPaymentMethod
             // 
-            this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox3.DisplayMember = "PlaceName";
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbPaymentMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbPaymentMethod.DisplayMember = "PlaceName";
+            this.cbPaymentMethod.FormattingEnabled = true;
+            this.cbPaymentMethod.Items.AddRange(new object[] {
             "نقداً",
             "اجل"});
-            this.comboBox3.Location = new System.Drawing.Point(300, 21);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.comboBox3.Size = new System.Drawing.Size(112, 26);
-            this.comboBox3.TabIndex = 24;
-            this.comboBox3.Text = "نقدا";
-            this.comboBox3.ValueMember = "PlaceID";
-            this.comboBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox3_KeyPress);
+            this.cbPaymentMethod.Location = new System.Drawing.Point(300, 21);
+            this.cbPaymentMethod.Name = "cbPaymentMethod";
+            this.cbPaymentMethod.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbPaymentMethod.Size = new System.Drawing.Size(112, 26);
+            this.cbPaymentMethod.TabIndex = 24;
+            this.cbPaymentMethod.Text = "نقداً";
+            this.cbPaymentMethod.ValueMember = "PlaceID";
+            this.cbPaymentMethod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox3_KeyPress);
             // 
             // frmOldReceiptSearch
             // 
@@ -276,9 +230,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1102, 512);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbLocations);
+            this.Controls.Add(this.cbPaymentMethod);
+            this.Controls.Add(this.cbPlaces);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.chPeriod);
@@ -317,12 +271,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn الجملةDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn مكانالطلبDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource searchOldReceiptsResultBindingSource;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbPlaces;
         private System.Windows.Forms.BindingSource placeBindingSource;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbLocations;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource locationBindingSource;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbPaymentMethod;
     }
 }

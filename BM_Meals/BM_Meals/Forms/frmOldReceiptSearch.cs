@@ -27,16 +27,16 @@ namespace BM_Meals
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string Status = "Cash";
-            if (comboBox3.Text == "اجل")
+            if (cbPaymentMethod.Text == "اجل")
             {
                 Status = "Credit";
             }
             /*if (!chPeriod.Checked)
             {
-            searchOldReceiptsResultBindingSource.DataSource = BM_MealsDC.SearchOldReceipts(int.Parse(comboBox2.SelectedValue.ToString()),
+            searchOldReceiptsResultBindingSource.DataSource = BM_MealsDC.(from  int.Parse(cbLocations.SelectedValue.ToString()),
                 dateTimePicker1.Value.Date, null, Status).ToList();}
             else
-                searchOldReceiptsResultBindingSource.DataSource = BM_MealsDC.SearchOldReceipts(int.Parse(comboBox2.SelectedValue.ToString()),
+                searchOldReceiptsResultBindingSource.DataSource = BM_MealsDC.SearchOldReceipts(int.Parse(cbLocations.SelectedValue.ToString()),
                 dateTimePicker1.Value.Date, dtpDateTo.Value.AddDays(1).Date, Status).ToList();*/
             //dataGridView1.DataSource = searchOldReceiptsResultBindingSource;
         }
@@ -44,18 +44,18 @@ namespace BM_Meals
         private void frmOldReceiptSearch_Load(object sender, EventArgs e)
         {
             BM_MealsDC = new BM_MealsDBContext();
-            comboBox1.DataSource = (from _Place in BM_MealsDC.Places
+            cbPlaces.DataSource = (from _Place in BM_MealsDC.Places
                                                            select _Place).ToList();
-            comboBox1.SelectedIndex = 0;
+            cbPlaces.SelectedIndex = 0;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox2.DataSource = (from _Location in BM_MealsDC.Locations
-                                    where _Location.PlaceID == int.Parse(comboBox1.SelectedValue.ToString())
+            cbLocations.DataSource = (from _Location in BM_MealsDC.Locations
+                                    where _Location.PlaceID == int.Parse(cbPlaces.SelectedValue.ToString())
                                     select _Location).ToList();
-            if (comboBox2.Items.Count > 0)
-                comboBox2.SelectedIndex = 0;
+            if (cbLocations.Items.Count > 0)
+                cbLocations.SelectedIndex = 0;
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
