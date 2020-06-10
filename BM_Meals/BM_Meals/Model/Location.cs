@@ -15,5 +15,10 @@ namespace BM_Meals
         public string LocationName { get; set; }
 
         public System.Nullable<int> PlaceID { get; set; }
+
+        public static implicit operator Location(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

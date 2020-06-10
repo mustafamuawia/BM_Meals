@@ -102,11 +102,11 @@ namespace BM_Meals
             _Items = (from _Location in BM_MealsDC.Items
                       where _Location.CategoryID == 1
                       select _Location).ToList<Item>();
-            lblPlaceName.Text = (from _Place in BM_MealsDC.Places
-                                 where _Place.PlaceID == varLocation.PlaceID
-                                 select _Place.PlaceName).First();
+           // lblPlaceName.Text = (from _Place in BM_MealsDC.Places
+                              //   where _Place.PlaceID == varLocation.PlaceID
+                               //  select _Place.PlaceName).First();
 
-            lblLocationName.Text = varLocation.LocationName;
+            //lblLocationName.Text = varLocation.LocationName;
             if (_Categories.Count > 12)
             {
                 this.btnNextCategories.Visible = true;
@@ -137,12 +137,12 @@ namespace BM_Meals
 
             if (_Items.Count > 30)
             {
-                this.btnItemsNext.Visible = true;
+               // this.btnItemsNext.Visible = true;
                 this.btnPrevItems.Visible = true;
             }
             else
             {
-                this.btnItemsNext.Visible = false;
+               // this.btnItemsNext.Visible = false;
                 this.btnPrevItems.Visible = false;
             }
             intItem = 0;
@@ -231,12 +231,12 @@ namespace BM_Meals
 
             if (_Items.Count > 30)
             {
-                this.btnItemsNext.Visible = true;
+               // this.btnItemsNext.Visible = true;
                 this.btnPrevItems.Visible = true;
             }
             else
             {
-                this.btnItemsNext.Visible = false;
+              //  this.btnItemsNext.Visible = false;
                 this.btnPrevItems.Visible = false;
             }
 

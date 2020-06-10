@@ -42,5 +42,10 @@ namespace BM_Meals
                 MessageBox.Show("تم تعديل كلمة السر");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

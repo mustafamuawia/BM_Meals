@@ -40,5 +40,34 @@ namespace BM_Meals
             dgvItems.DataSource = itemBindingSource;
             
         }
+
+        private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.ColumnIndex == 7)// 10th column the button
+            {
+                dgvItems.EndEdit();
+                BM_MealsDC.SaveChanges();
+                MessageBox.Show("تم الحفظ بنجاح");
+            }
+            if (e.ColumnIndex == 8)// 10th column the button
+            {
+
+                if (MessageBox.Show("هل انت متأكد من عملية الحذف؟", "رسالة تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                {
+                    //dgvItems.Rows.Remove(dgvItems.Rows[e.RowIndex]);
+                    dgvItems.Rows.Remove(dgvItems.Rows[e.RowIndex]);
+                    BM_MealsDC.SaveChanges();
+                    dgvItems.Refresh();
+                }
+               
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

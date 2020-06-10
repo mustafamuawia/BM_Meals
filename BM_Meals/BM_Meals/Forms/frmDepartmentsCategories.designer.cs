@@ -30,26 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvCategories = new System.Windows.Forms.DataGridView();
+            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
+            this.departmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.departmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.dgvWaiters = new System.Windows.Forms.DataGridView();
+            this.waiterIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.waiterNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.waiterStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.waiterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.btnSaveCategories = new System.Windows.Forms.Button();
             this.btnSaveWaiters = new System.Windows.Forms.Button();
             this.btnSaveDepartment = new System.Windows.Forms.Button();
-            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.departmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.waiterIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.waiterNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.waiterStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
@@ -70,12 +70,36 @@
             this.categoryNameDataGridViewTextBoxColumn,
             this.categoryStatusDataGridViewTextBoxColumn});
             this.dgvCategories.DataSource = this.categoryBindingSource;
-            this.dgvCategories.Location = new System.Drawing.Point(727, 94);
+            this.dgvCategories.Location = new System.Drawing.Point(736, 63);
             this.dgvCategories.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCategories.Name = "dgvCategories";
             this.dgvCategories.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvCategories.RowHeadersWidth = 51;
             this.dgvCategories.Size = new System.Drawing.Size(487, 208);
             this.dgvCategories.TabIndex = 0;
+            // 
+            // categoryIDDataGridViewTextBoxColumn
+            // 
+            this.categoryIDDataGridViewTextBoxColumn.DataPropertyName = "CategoryID";
+            this.categoryIDDataGridViewTextBoxColumn.HeaderText = "الرقم";
+            this.categoryIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.categoryIDDataGridViewTextBoxColumn.Name = "categoryIDDataGridViewTextBoxColumn";
+            // 
+            // categoryNameDataGridViewTextBoxColumn
+            // 
+            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "اسم المجموعة";
+            this.categoryNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            // 
+            // categoryStatusDataGridViewTextBoxColumn
+            // 
+            this.categoryStatusDataGridViewTextBoxColumn.DataPropertyName = "CategoryStatus";
+            this.categoryStatusDataGridViewTextBoxColumn.HeaderText = "الحالة";
+            this.categoryStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.categoryStatusDataGridViewTextBoxColumn.Name = "categoryStatusDataGridViewTextBoxColumn";
+            this.categoryStatusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.categoryStatusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // categoryBindingSource
             // 
@@ -86,10 +110,10 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F);
-            this.label1.Location = new System.Drawing.Point(956, 63);
+            this.label1.Location = new System.Drawing.Point(945, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 18);
+            this.label1.Size = new System.Drawing.Size(84, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "المجموعات";
             // 
@@ -105,12 +129,37 @@
             this.departmentNameDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn});
             this.dgvDepartments.DataSource = this.departmentBindingSource;
-            this.dgvDepartments.Location = new System.Drawing.Point(727, 343);
+            this.dgvDepartments.Location = new System.Drawing.Point(736, 348);
             this.dgvDepartments.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDepartments.Name = "dgvDepartments";
             this.dgvDepartments.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvDepartments.RowHeadersWidth = 51;
             this.dgvDepartments.Size = new System.Drawing.Size(487, 208);
             this.dgvDepartments.TabIndex = 0;
+            // 
+            // departmentIDDataGridViewTextBoxColumn
+            // 
+            this.departmentIDDataGridViewTextBoxColumn.DataPropertyName = "DepartmentID";
+            this.departmentIDDataGridViewTextBoxColumn.HeaderText = "الرقم";
+            this.departmentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.departmentIDDataGridViewTextBoxColumn.Name = "departmentIDDataGridViewTextBoxColumn";
+            this.departmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departmentNameDataGridViewTextBoxColumn
+            // 
+            this.departmentNameDataGridViewTextBoxColumn.DataPropertyName = "DepartmentName";
+            this.departmentNameDataGridViewTextBoxColumn.HeaderText = "القسم";
+            this.departmentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.departmentNameDataGridViewTextBoxColumn.Name = "departmentNameDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "الحالة";
+            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // departmentBindingSource
             // 
@@ -121,10 +170,10 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F);
-            this.label2.Location = new System.Drawing.Point(978, 321);
+            this.label2.Location = new System.Drawing.Point(976, 292);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 18);
+            this.label2.Size = new System.Drawing.Size(53, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "الاقسام";
             // 
@@ -140,12 +189,36 @@
             this.waiterNameDataGridViewTextBoxColumn,
             this.waiterStatusDataGridViewTextBoxColumn});
             this.dgvWaiters.DataSource = this.waiterBindingSource;
-            this.dgvWaiters.Location = new System.Drawing.Point(117, 94);
+            this.dgvWaiters.Location = new System.Drawing.Point(106, 63);
             this.dgvWaiters.Margin = new System.Windows.Forms.Padding(4);
             this.dgvWaiters.Name = "dgvWaiters";
             this.dgvWaiters.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvWaiters.RowHeadersWidth = 51;
             this.dgvWaiters.Size = new System.Drawing.Size(487, 208);
             this.dgvWaiters.TabIndex = 0;
+            // 
+            // waiterIDDataGridViewTextBoxColumn
+            // 
+            this.waiterIDDataGridViewTextBoxColumn.DataPropertyName = "WaiterID";
+            this.waiterIDDataGridViewTextBoxColumn.HeaderText = "الرقم";
+            this.waiterIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.waiterIDDataGridViewTextBoxColumn.Name = "waiterIDDataGridViewTextBoxColumn";
+            // 
+            // waiterNameDataGridViewTextBoxColumn
+            // 
+            this.waiterNameDataGridViewTextBoxColumn.DataPropertyName = "WaiterName";
+            this.waiterNameDataGridViewTextBoxColumn.HeaderText = "الاسم";
+            this.waiterNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.waiterNameDataGridViewTextBoxColumn.Name = "waiterNameDataGridViewTextBoxColumn";
+            // 
+            // waiterStatusDataGridViewTextBoxColumn
+            // 
+            this.waiterStatusDataGridViewTextBoxColumn.DataPropertyName = "WaiterStatus";
+            this.waiterStatusDataGridViewTextBoxColumn.HeaderText = "الحالة";
+            this.waiterStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.waiterStatusDataGridViewTextBoxColumn.Name = "waiterStatusDataGridViewTextBoxColumn";
+            this.waiterStatusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.waiterStatusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // waiterBindingSource
             // 
@@ -156,10 +229,10 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F);
-            this.label3.Location = new System.Drawing.Point(332, 63);
+            this.label3.Location = new System.Drawing.Point(317, 25);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 18);
+            this.label3.Size = new System.Drawing.Size(63, 23);
             this.label3.TabIndex = 1;
             this.label3.Text = "الويترس";
             // 
@@ -167,7 +240,7 @@
             // 
             this.btnSaveCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveCategories.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSaveCategories.Location = new System.Drawing.Point(629, 172);
+            this.btnSaveCategories.Location = new System.Drawing.Point(638, 172);
             this.btnSaveCategories.Name = "btnSaveCategories";
             this.btnSaveCategories.Size = new System.Drawing.Size(91, 48);
             this.btnSaveCategories.TabIndex = 6;
@@ -178,7 +251,7 @@
             // btnSaveWaiters
             // 
             this.btnSaveWaiters.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSaveWaiters.Location = new System.Drawing.Point(19, 172);
+            this.btnSaveWaiters.Location = new System.Drawing.Point(8, 172);
             this.btnSaveWaiters.Name = "btnSaveWaiters";
             this.btnSaveWaiters.Size = new System.Drawing.Size(91, 48);
             this.btnSaveWaiters.TabIndex = 6;
@@ -190,7 +263,7 @@
             // 
             this.btnSaveDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveDepartment.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSaveDepartment.Location = new System.Drawing.Point(629, 390);
+            this.btnSaveDepartment.Location = new System.Drawing.Point(638, 436);
             this.btnSaveDepartment.Name = "btnSaveDepartment";
             this.btnSaveDepartment.Size = new System.Drawing.Size(91, 48);
             this.btnSaveDepartment.TabIndex = 6;
@@ -198,70 +271,9 @@
             this.btnSaveDepartment.UseVisualStyleBackColor = false;
             this.btnSaveDepartment.Click += new System.EventHandler(this.btnSaveDepartment_Click);
             // 
-            // categoryIDDataGridViewTextBoxColumn
-            // 
-            this.categoryIDDataGridViewTextBoxColumn.DataPropertyName = "CategoryID";
-            this.categoryIDDataGridViewTextBoxColumn.HeaderText = "الرقم";
-            this.categoryIDDataGridViewTextBoxColumn.Name = "categoryIDDataGridViewTextBoxColumn";
-            // 
-            // categoryNameDataGridViewTextBoxColumn
-            // 
-            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "اسم المجموعة";
-            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
-            // 
-            // categoryStatusDataGridViewTextBoxColumn
-            // 
-            this.categoryStatusDataGridViewTextBoxColumn.DataPropertyName = "CategoryStatus";
-            this.categoryStatusDataGridViewTextBoxColumn.HeaderText = "الحالة";
-            this.categoryStatusDataGridViewTextBoxColumn.Name = "categoryStatusDataGridViewTextBoxColumn";
-            this.categoryStatusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.categoryStatusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // departmentIDDataGridViewTextBoxColumn
-            // 
-            this.departmentIDDataGridViewTextBoxColumn.DataPropertyName = "DepartmentID";
-            this.departmentIDDataGridViewTextBoxColumn.HeaderText = "الرقم";
-            this.departmentIDDataGridViewTextBoxColumn.Name = "departmentIDDataGridViewTextBoxColumn";
-            this.departmentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // departmentNameDataGridViewTextBoxColumn
-            // 
-            this.departmentNameDataGridViewTextBoxColumn.DataPropertyName = "DepartmentName";
-            this.departmentNameDataGridViewTextBoxColumn.HeaderText = "القسم";
-            this.departmentNameDataGridViewTextBoxColumn.Name = "departmentNameDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "الحالة";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // waiterIDDataGridViewTextBoxColumn
-            // 
-            this.waiterIDDataGridViewTextBoxColumn.DataPropertyName = "WaiterID";
-            this.waiterIDDataGridViewTextBoxColumn.HeaderText = "الرقم";
-            this.waiterIDDataGridViewTextBoxColumn.Name = "waiterIDDataGridViewTextBoxColumn";
-            // 
-            // waiterNameDataGridViewTextBoxColumn
-            // 
-            this.waiterNameDataGridViewTextBoxColumn.DataPropertyName = "WaiterName";
-            this.waiterNameDataGridViewTextBoxColumn.HeaderText = "الاسم";
-            this.waiterNameDataGridViewTextBoxColumn.Name = "waiterNameDataGridViewTextBoxColumn";
-            // 
-            // waiterStatusDataGridViewTextBoxColumn
-            // 
-            this.waiterStatusDataGridViewTextBoxColumn.DataPropertyName = "WaiterStatus";
-            this.waiterStatusDataGridViewTextBoxColumn.HeaderText = "الحالة";
-            this.waiterStatusDataGridViewTextBoxColumn.Name = "waiterStatusDataGridViewTextBoxColumn";
-            this.waiterStatusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.waiterStatusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // frmDepartmentsCategories
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1245, 581);

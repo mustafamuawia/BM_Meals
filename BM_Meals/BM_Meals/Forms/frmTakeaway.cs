@@ -20,7 +20,7 @@ namespace BM_Meals
             InitializeComponent();
             
         }
-            public static int LocationID=-1;
+        public static int LocationID=-1;
         public static string LocationName = "";
         List<Category> _Categories;
         List<Item> _Items;
@@ -104,16 +104,20 @@ namespace BM_Meals
             //                     select _Place.PlaceName).First();
 
            // lblLocationName.Text = varLocation.LocationName;
-            if (_Categories.Count > 12)
-            {
-                this.btnNextCategories.Visible = true;
-                this.btnCategoriesPrevious.Visible = true;
-            }
-            else
-            {
-                this.btnNextCategories.Visible = false;
-                this.btnCategoriesPrevious.Visible = false;
-            }
+          
+            
+            //comment by Basem for test------------------------------------------------
+
+            //if (_Categories.Count > 12)
+            //{
+            //    this.btnNextCategories.Visible = true;
+            //    this.btnCategoriesPrevious.Visible = true;
+            //}
+            //else
+            //{
+            //    this.btnNextCategories.Visible = false;
+            //    this.btnCategoriesPrevious.Visible = false;
+            //}
 
             foreach (Category _Category in _Categories)
             {
@@ -121,10 +125,10 @@ namespace BM_Meals
                 Button btnCategory = new Button();
                 btnCategory.Name = _Category.CategoryID.ToString();
                 btnCategory.Text = _Category.CategoryName;
-                btnCategory.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnCategory.ForeColor = System.Drawing.Color.Purple;
-
-                btnCategory.UseVisualStyleBackColor = true;
+                btnCategory.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnCategory.ForeColor = System.Drawing.Color.Lime;
+                btnCategory.BackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+                btnCategory.UseVisualStyleBackColor = false;
                 btnCategory.Size = new System.Drawing.Size(111, 96);
                 btnCategory.Click += new EventHandler(CategoriesEvent);
 
@@ -132,16 +136,19 @@ namespace BM_Meals
                 intCategory += 1;
             }
 
-            if (_Items.Count > 30)
-            {
-                this.btnItemsNext.Visible = true;
-                this.btnPrevItems.Visible = true;
-            }
-            else
-            {
-                this.btnItemsNext.Visible = false;
-                this.btnPrevItems.Visible = false;
-            }
+
+            //comment by Basem for test------------------------------------------------
+
+            //if (_Items.Count > 30)
+            //{
+            //    //this.btnItemsNext.Visible = true;
+            //    this.btnPrevItems.Visible = true;
+            //}
+            //else
+            //{
+            //   // this.btnItemsNext.Visible = false;
+            //    this.btnPrevItems.Visible = false;
+            //}
             intItem = 0;
             for (int Index = 0; Index < 30; Index++)
             {
@@ -154,10 +161,10 @@ namespace BM_Meals
                 btnMenuItem.Text = row.ItemName;
                 //+"\n \n" + row["MenuItemID"].ToString();
                 //btnMenuItem.Tag = row["MenuItemText"].ToString();
-                btnMenuItem.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnMenuItem.ForeColor = System.Drawing.Color.Purple;
-
-                btnMenuItem.UseVisualStyleBackColor = true;
+                btnMenuItem.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnMenuItem.ForeColor = System.Drawing.Color.Gold;
+                btnMenuItem.BackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+                btnMenuItem.UseVisualStyleBackColor = false;
                 btnMenuItem.Size = new System.Drawing.Size(111, 96);
                 btnMenuItem.Click += new EventHandler(MenuItemsEvent);
 
@@ -228,12 +235,12 @@ namespace BM_Meals
 
             if (_Items.Count > 30)
             {
-                this.btnItemsNext.Visible = true;
+                //this.btnItemsNext.Visible = true;
                 this.btnPrevItems.Visible = true;
             }
             else
             {
-                this.btnItemsNext.Visible = false;
+                //this.btnItemsNext.Visible = false;
                 this.btnPrevItems.Visible = false;
             }
 
@@ -249,10 +256,10 @@ namespace BM_Meals
                 btnMenuItem.Text = row.ItemName;
                 //+"\n \n" + row["MenuItemID"].ToString();
                 //btnMenuItem.Tag = row["MenuItemText"].ToString();
-                btnMenuItem.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnMenuItem.ForeColor = System.Drawing.Color.Purple;
-
-                btnMenuItem.UseVisualStyleBackColor = true;
+                btnMenuItem.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnMenuItem.ForeColor = System.Drawing.Color.Gold;
+                btnMenuItem.BackColor = System.Drawing.Color.FromArgb(64,64,64);
+                btnMenuItem.UseVisualStyleBackColor = false;
                 btnMenuItem.Size = new System.Drawing.Size(111, 96);
                 btnMenuItem.Click += new EventHandler(MenuItemsEvent);
 
@@ -278,17 +285,28 @@ namespace BM_Meals
                     break;
                 }
             }
-
+            double qtnfull;
             if (item1 == -1)
             {
-                dataGridView1.Rows.Add(((Button)sender).Name, varItem.ItemName, 1, varItem.ItemSellPrice, varItem.ItemSellPrice, varItem.DepartmentID);
-                this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) + varItem.ItemSellPrice).ToString();
+                if (txtfullqnt.Text == string.Empty)
+                {
+                    qtnfull = 1;
+                }
+                else
+                {
+                    qtnfull = Convert.ToInt32(txtfullqnt.Text);
+                }
+                dataGridView1.Rows.Add(((Button)sender).Name, varItem.ItemName, qtnfull, varItem.ItemSellPrice, Convert.ToDouble(varItem.ItemSellPrice)* qtnfull, varItem.DepartmentID);
+                lblTotal.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+               .Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString();
+                txtfullqnt.Text = null;
             }
             else if (item1 > -1)
             {
                 dataGridView1.Rows[item1].Cells["QTY"].Value = (Convert.ToDouble(dataGridView1.Rows[item1].Cells["QTY"].Value) + 1).ToString();
                 dataGridView1.Rows[item1].Cells["Total"].Value = (varItem.ItemSellPrice * decimal.Parse(dataGridView1.Rows[item1].Cells["QTY"].Value.ToString())).ToString();
-                this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) + varItem.ItemSellPrice).ToString();
+                lblTotal.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+                               .Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString();
             }
         }
 
@@ -711,6 +729,103 @@ namespace BM_Meals
                     dgvPreviousOrders.DataSource = lstOrder_OrderItems[OrderIndex].Value;
                 }
             }
+        }
+
+        private void btnNextCategories_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCategoriesPrevious_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrevItems_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCredit_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVoucher_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+                if (e.ColumnIndex == 6)// 10th column the button
+                {
+
+                if (MessageBox.Show("هل انت متأكد من عملية الحذف؟", "رسالة تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                {
+                    dataGridView1.Rows.Remove(dataGridView1.Rows[e.RowIndex]);
+                }
+                lblTotal.Text = dataGridView1.Rows.Cast<DataGridViewRow>()
+                     .Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString();
+            }
+        }
+
+        private void txtfullqnt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // If you want, you can allow decimal (float) numbers
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        Control Activecon;
+        private void BTN1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+   Button btn = (Button)sender;
+  txtfullqnt.Focus();
+            Activecon.Focus();
+              
+            SendKeys.Send(btn.Text);
+            }
+            catch(Exception )
+            {
+                txtfullqnt.Focus();
+                return ;
+            }
+        }
+
+        private void txtfullqnt_Enter(object sender, EventArgs e)
+        {
+            Activecon = (Control)sender;
+        }
+
+        private void btnclear_Click(object sender, EventArgs e)
+        {
+            txtfullqnt.Text = null;
         }
 
         private void btnOldOrdersPrevious_Click(object sender, EventArgs e)

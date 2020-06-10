@@ -119,15 +119,7 @@ namespace BM_Meals
 
         private void تغييركلمةالسرToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["frmUserInfo"] != null)
-                Application.OpenForms["frmUserInfo"].Focus();
-            else if (Application.OpenForms["frmUserInfo"] == null)
-            {
-                frmUserInfo fUserInfo = new frmUserInfo();
-                fUserInfo.Show();
-                fUserInfo.MdiParent = this;
-                fUserInfo.WindowState = FormWindowState.Maximized;
-            }
+            new frmUserInfo().ShowDialog();
         }
 
         private void ادارةالمستخدمينToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,6 +129,19 @@ namespace BM_Meals
             else if (Application.OpenForms["fRoles"] == null)
             {
                 frmRoles fRoles = new frmRoles();
+                fRoles.Show();
+                fRoles.MdiParent = this;
+                fRoles.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void المبيعاتToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmTakeaway"] != null)
+                Application.OpenForms["frmTakeaway"].Focus();
+            else if (Application.OpenForms["frmTakeaway"] == null)
+            {
+                frmTakeaway fRoles = new frmTakeaway( );
                 fRoles.Show();
                 fRoles.MdiParent = this;
                 fRoles.WindowState = FormWindowState.Maximized;

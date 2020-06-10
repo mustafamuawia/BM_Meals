@@ -341,10 +341,19 @@ namespace BM_Meals
 
         private void btnTakeaway_Click(object sender, EventArgs e)
         {
-            new frmTakeaway().ShowDialog();
+            //new frmTakeaway().ShowDialog();
+
+            if (Application.OpenForms["frmTakeaway"] != null)
+                Application.OpenForms["frmTakeaway"].Focus();
+            else if (Application.OpenForms["frmTakeaway"] == null)
+            {
+                frmTakeaway fRoles = new frmTakeaway();
+                fRoles.Show();
+              //  fRoles.MdiParent = this;
+                fRoles.WindowState = FormWindowState.Maximized;
+            }
+
         }
-
-
         //private void MenuItemsRighClickEvent(object sender, MouseEventArgs e)
         //{
         //    if (e.Button.ToString().Equals("Right"))

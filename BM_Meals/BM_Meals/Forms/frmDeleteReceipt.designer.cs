@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.prntReceiptReceiptIDResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -94,7 +94,7 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(8, 58);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
+            this.radioButton2.Size = new System.Drawing.Size(17, 16);
             this.radioButton2.TabIndex = 0;
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
@@ -105,7 +105,7 @@
             this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(8, 11);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
+            this.radioButton1.Size = new System.Drawing.Size(17, 16);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -114,9 +114,9 @@
             // btnOpenReciept
             // 
             this.btnOpenReciept.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnOpenReciept.Location = new System.Drawing.Point(268, 57);
+            this.btnOpenReciept.Location = new System.Drawing.Point(260, 57);
             this.btnOpenReciept.Name = "btnOpenReciept";
-            this.btnOpenReciept.Size = new System.Drawing.Size(58, 38);
+            this.btnOpenReciept.Size = new System.Drawing.Size(66, 38);
             this.btnOpenReciept.TabIndex = 1;
             this.btnOpenReciept.Text = "عرض";
             this.btnOpenReciept.UseVisualStyleBackColor = false;
@@ -139,21 +139,21 @@
             this.dtpReceiptDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpReceiptDate.Location = new System.Drawing.Point(152, 14);
             this.dtpReceiptDate.Name = "dtpReceiptDate";
-            this.dtpReceiptDate.Size = new System.Drawing.Size(124, 26);
+            this.dtpReceiptDate.Size = new System.Drawing.Size(124, 30);
             this.dtpReceiptDate.TabIndex = 2;
             // 
             // txtReceiptSerial
             // 
             this.txtReceiptSerial.Location = new System.Drawing.Point(383, 64);
             this.txtReceiptSerial.Name = "txtReceiptSerial";
-            this.txtReceiptSerial.Size = new System.Drawing.Size(100, 26);
+            this.txtReceiptSerial.Size = new System.Drawing.Size(100, 30);
             this.txtReceiptSerial.TabIndex = 1;
             // 
             // txtReceiptID
             // 
             this.txtReceiptID.Location = new System.Drawing.Point(383, 12);
             this.txtReceiptID.Name = "txtReceiptID";
-            this.txtReceiptID.Size = new System.Drawing.Size(100, 26);
+            this.txtReceiptID.Size = new System.Drawing.Size(100, 30);
             this.txtReceiptID.TabIndex = 1;
             // 
             // label3
@@ -163,7 +163,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(55, 18);
+            this.label3.Size = new System.Drawing.Size(71, 23);
             this.label3.TabIndex = 0;
             this.label3.Text = "التسلسلي:";
             // 
@@ -174,7 +174,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(46, 18);
+            this.label2.Size = new System.Drawing.Size(60, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "التاريخ:";
             // 
@@ -185,16 +185,16 @@
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(75, 18);
+            this.label1.Size = new System.Drawing.Size(96, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "رقم الإيصال:";
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "dsPrintReceipt";
-            reportDataSource3.Value = this.prntReceiptReceiptIDResultBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource1.Name = "dsPrintReceipt";
+            reportDataSource1.Value = this.prntReceiptReceiptIDResultBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "BM_Meals.Receipt.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -203,7 +203,7 @@
             // 
             // frmDeleteReceipt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(668, 655);
